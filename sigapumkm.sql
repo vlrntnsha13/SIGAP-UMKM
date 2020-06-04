@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 19, 2020 at 03:40 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.2.27
+-- Waktu pembuatan: 04 Jun 2020 pada 14.52
+-- Versi server: 10.4.11-MariaDB
+-- Versi PHP: 7.4.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -33,20 +33,23 @@ CREATE TABLE `admin` (
   `nama_admin` varchar(30) NOT NULL,
   `email_admin` varchar(30) NOT NULL,
   `nohp_admin` varchar(20) NOT NULL,
-  `password` varchar(12) NOT NULL
+  `username` char(10) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `level` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
-INSERT INTO `admin` (`id_admin`, `nama_admin`, `email_admin`, `nohp_admin`, `password`) VALUES
-('A01', 'admin1', 'admin1@gmail.com', '812345678', '123');
+INSERT INTO `admin` (`id_admin`, `nama_admin`, `email_admin`, `nohp_admin`, `username`, `password`, `level`) VALUES
+('A01', 'admin1', 'admin1@gmail.com', '08123456789', 'admin1', '202cb962ac59075b964b07152d234b70', 1),
+('A02', 'Grace Hutabarat', 'grace@gmail.com', '08968687129', 'grace', '81dc9bdb52d04dc20036dbd8313ed055', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `berita`
+-- Struktur dari tabel `berita`
 --
 
 CREATE TABLE `berita` (
@@ -55,35 +58,45 @@ CREATE TABLE `berita` (
   `isi` text NOT NULL,
   `tgl_terbit` date NOT NULL,
   `penulis` varchar(30) NOT NULL,
+  `image` varchar(255) NOT NULL DEFAULT 'default.jpg',
   `link` varchar(100) NOT NULL,
   `id_admin` char(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `berita`
+-- Dumping data untuk tabel `berita`
 --
 
-INSERT INTO `berita` (`id_berita`, `judul`, `isi`, `tgl_terbit`, `penulis`, `link`, `id_admin`) VALUES
-('BR01', 'Pengusaha UMKM Dapat Bebas Bea Masuk dan Pajak, In', '\"Pemerintah melalui Direktorat Jenderal Bea dan Cukai (DJBC) telah meluncurkan fasilitas terbaru bernama Kemudahan Impor Tujuan Ekspor untuk Industri kecil dan menengah (KITE IKM) dengan tujuan meningkatkan ekspor. Fasilitas yang membebaskan bea masuk dan pajak-pajak terutang ini diharapkan dapat menarik minat para pelaku usaha IKM.\r\n\r\nSelepas peluncuran fasilitas KITE IKM di Desa Tumang, Boyolali, Jawa Tengah, Direktur Jenderal Bea Cukai, Heru Pambudi menjelaskan prosedur untuk mendapatkan fasilitas tersebut.\r\n\r\n\"\"Untuk mendapatkan fasilitas, badan usaha yang tergolong dalam IKM harus mengajukan permohonan dengan memenuhi beberapa kriteria,\"\" ungkap Heru dalam keterangan resminya di Jakarta, Senin (30/1/2017).\r\n\r\nDia menambahkan, kriteria yang diperlukan bagi IKM untuk memperoleh fasilitas ini, antara lain pertama, memiliki kegiatan IKM yang dibuktikan dengan izin usaha industri.\r\n\r\nKedua, IKM juga harus bersedia untuk mengoperasikan modul kepabeanan yang diciptakan khusus untuk fasilitas KITE IKM, dan sudah memiliki lokasi usaha paling kurang dua tahun.\r\n\r\nKetiga, para pelaku usaha juga harus menyerahkan dokumen di antaranya Nomor Pokok Wajib Pajak (NPWP), Surat Pemberitahuan (SPT) Pajak, surat rencana produksi, serta surat pernyataan yang disahkan oleh notaris.\r\n\r\n\"\"Permohonan tersebut dapat diajukan di kantor-kantor Bea Cukai. Petugas kami akan menindaklanjuti permohonan tersebut dengan waktu paling lama 14 hari kerja sejak berkas permohonan diterima lengkap,\"\" tutur Heru.\r\n\r\nFasilitas yang diberikan pemerintah ini diharapkan dapat dimanfaatkan sebaik-baiknya oleh para pelaku usaha IKM.\r\n\r\n\"\"Dengan adanya fasilitas ini diharapkan IKM dapat semakin bergairah dalam memasarkan produknya ke luar negeri. Selain itu, tenaga kerja yang terserap juga diharapkan dapat semakin meningkat,\"\" tutur Heru.\"\r\n', '0000-00-00', 'Fiki Ariyanti', 'Liputan6.com', 'A01'),
-('BR02', 'Aplikasi Ini Bantu UMKM Rambah Bisnis Online', '\"Indonesia memiliki banyak pengusaha di sektor mikro, kecil dan menengah (UMKM). Tercatat, ada sekitar 57,3 juta pengusaha di sektor UMKM di Indonesia. Namun ternyata hanya 9 persen dari UMKM tersebut yang memiliki kemampuan e-commerce.\r\n\r\nHal inilah yang membuat Glen Chandra dan Ahmad Fikri Ardian membuat aplikasi bernama Osman. Aplikasi ini membantuk para pengusaha untuk mengembangkan bisnis online alias e-commerce.\r\n\r\nCo-Founder aplikasi Osman Glen Chandra mengatakan, ide mengembangkan aplikasi ini berawal dari banyaknya masalah pelaku UMKM yang terkendala dengan pengembangan usaha di media online. Sehingga Osman menjadi pihak yang membantu UMKM di industri e-commerce.\r\n\r\n\"\"Dengan sama-sama kita bisa lakukan. Seperti gotong royong semua UMKM bisa terhubung dan masalah itu bisa diselesaikan dengan aplikasi Osman,\"\" katanya seperti dikutip Minggu (31/12/2017).\r\n\r\nIcal panggilan Chandra mengatakan ada tiga fitur utama di aplikasi Osman. Pertama fitur manajemen penjualan dimana penjual bisa komunikasi ecara otomatis (chatbot) dan manual. Kedua fitur manajemen produk yang mengatur tata kelola produk.\r\n\r\n\"\"Ketiga laporan pendapatan, penjual bisa mengetahui laporan pendapatan dari penjualan online maupun offline,\"\" katanya.\r\n\r\nIa mengatakan sebagai bentuk perkenalan Osman memberikan program lifetime membership untuk UMKM. Osman juga kerjasama dengan PCP Express perusahaan logistik yang pengalaman dengan layanan door to door.\r\n\r\n\"\"Enaknya di Osman barangnya dijemput logistik dan pengiriman oleh logistik. Fokus UMKM hanya di produk, biar inovasi saja yangdipikirkan. Hebatnya lagi kita pasang harga Rp 100 ribu untuk 10 ribu UMKM yang bayarnya seumur hidup,\"\" ujarnya.\"\r\n', '0000-00-00', 'Yanuar H', 'Liputan6.com', 'A01');
+INSERT INTO `berita` (`id_berita`, `judul`, `isi`, `tgl_terbit`, `penulis`, `image`, `link`, `id_admin`) VALUES
+('BR01', 'Pengusaha UMKM Dapat Bebas Bea Masuk dan Pajak, In', '\"Pemerintah melalui Direktorat Jenderal Bea dan Cukai (DJBC) telah meluncurkan fasilitas terbaru bernama Kemudahan Impor Tujuan Ekspor untuk Industri kecil dan menengah (KITE IKM) dengan tujuan meningkatkan ekspor. Fasilitas yang membebaskan bea masuk dan pajak-pajak terutang ini diharapkan dapat menarik minat para pelaku usaha IKM.\r\n\r\nSelepas peluncuran fasilitas KITE IKM di Desa Tumang, Boyolali, Jawa Tengah, Direktur Jenderal Bea Cukai, Heru Pambudi menjelaskan prosedur untuk mendapatkan fasilitas tersebut.\r\n\r\n\"\"Untuk mendapatkan fasilitas, badan usaha yang tergolong dalam IKM harus mengajukan permohonan dengan memenuhi beberapa kriteria,\"\" ungkap Heru dalam keterangan resminya di Jakarta, Senin (30/1/2017).\r\n\r\nDia menambahkan, kriteria yang diperlukan bagi IKM untuk memperoleh fasilitas ini, antara lain pertama, memiliki kegiatan IKM yang dibuktikan dengan izin usaha industri.\r\n\r\nKedua, IKM juga harus bersedia untuk mengoperasikan modul kepabeanan yang diciptakan khusus untuk fasilitas KITE IKM, dan sudah memiliki lokasi usaha paling kurang dua tahun.\r\n\r\nKetiga, para pelaku usaha juga harus menyerahkan dokumen di antaranya Nomor Pokok Wajib Pajak (NPWP), Surat Pemberitahuan (SPT) Pajak, surat rencana produksi, serta surat pernyataan yang disahkan oleh notaris.\r\n\r\n\"\"Permohonan tersebut dapat diajukan di kantor-kantor Bea Cukai. Petugas kami akan menindaklanjuti permohonan tersebut dengan waktu paling lama 14 hari kerja sejak berkas permohonan diterima lengkap,\"\" tutur Heru.\r\n\r\nFasilitas yang diberikan pemerintah ini diharapkan dapat dimanfaatkan sebaik-baiknya oleh para pelaku usaha IKM.\r\n\r\n\"\"Dengan adanya fasilitas ini diharapkan IKM dapat semakin bergairah dalam memasarkan produknya ke luar negeri. Selain itu, tenaga kerja yang terserap juga diharapkan dapat semakin meningkat,\"\" tutur Heru.\"\r\n', '0000-00-00', 'Fiki Ariyanti', 'fti.jpg', 'Liputan6.com', 'A01'),
+('BR02', 'Aplikasi Ini Bantu UMKM Rambah Bisnis Online', '\"Indonesia memiliki banyak pengusaha di sektor mikro, kecil dan menengah (UMKM). Tercatat, ada sekitar 57,3 juta pengusaha di sektor UMKM di Indonesia. Namun ternyata hanya 9 persen dari UMKM tersebut yang memiliki kemampuan e-commerce.\r\n\r\nHal inilah yang membuat Glen Chandra dan Ahmad Fikri Ardian membuat aplikasi bernama Osman. Aplikasi ini membantuk para pengusaha untuk mengembangkan bisnis online alias e-commerce.\r\n\r\nCo-Founder aplikasi Osman Glen Chandra mengatakan, ide mengembangkan aplikasi ini berawal dari banyaknya masalah pelaku UMKM yang terkendala dengan pengembangan usaha di media online. Sehingga Osman menjadi pihak yang membantu UMKM di industri e-commerce.\r\n\r\n\"\"Dengan sama-sama kita bisa lakukan. Seperti gotong royong semua UMKM bisa terhubung dan masalah itu bisa diselesaikan dengan aplikasi Osman,\"\" katanya seperti dikutip Minggu (31/12/2017).\r\n\r\nIcal panggilan Chandra mengatakan ada tiga fitur utama di aplikasi Osman. Pertama fitur manajemen penjualan dimana penjual bisa komunikasi ecara otomatis (chatbot) dan manual. Kedua fitur manajemen produk yang mengatur tata kelola produk.\r\n\r\n\"\"Ketiga laporan pendapatan, penjual bisa mengetahui laporan pendapatan dari penjualan online maupun offline,\"\" katanya.\r\n\r\nIa mengatakan sebagai bentuk perkenalan Osman memberikan program lifetime membership untuk UMKM. Osman juga kerjasama dengan PCP Express perusahaan logistik yang pengalaman dengan layanan door to door.\r\n\r\n\"\"Enaknya di Osman barangnya dijemput logistik dan pengiriman oleh logistik. Fokus UMKM hanya di produk, biar inovasi saja yangdipikirkan. Hebatnya lagi kita pasang harga Rp 100 ribu untuk 10 ribu UMKM yang bayarnya seumur hidup,\"\" ujarnya.\"\r\n', '0000-00-00', 'Yanuar H', 'fti.jpg', 'Liputan6.com', 'A01'),
+('BR04', 'Percobaan', 'aaa', '2020-05-28', 'Admin Boongan', 'default.jpg', 'LIputanMahasiswaONline.com', 'A01');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `galeri`
+-- Struktur dari tabel `galeri`
 --
 
 CREATE TABLE `galeri` (
   `id_galeri` char(3) NOT NULL,
   `nama_gal` varchar(30) NOT NULL,
-  `foto` varchar(30) NOT NULL,
+  `image` varchar(30) NOT NULL,
   `id_usaha` char(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `galeri`
+--
+
+INSERT INTO `galeri` (`id_galeri`, `nama_gal`, `image`, `id_usaha`) VALUES
+('G01', 'Foto 1', 'default.jpg', 'US01'),
+('G02', 'Foto 2', 'default.jpg', 'US01');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -92,17 +105,18 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`id_kat`, `nama_kat`) VALUES
+('KAT00', '-'),
 ('KAT01', 'Baju'),
 ('KAT02', 'Otomotif');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kecamatan`
+-- Struktur dari tabel `kecamatan`
 --
 
 CREATE TABLE `kecamatan` (
@@ -111,10 +125,11 @@ CREATE TABLE `kecamatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kecamatan`
+-- Dumping data untuk tabel `kecamatan`
 --
 
 INSERT INTO `kecamatan` (`id_kec`, `nama_kec`) VALUES
+('KEC00', '-'),
 ('KEC01', 'Bambang Lipuro'),
 ('KEC02', 'Banguntapan'),
 ('KEC03', 'Bantul'),
@@ -197,7 +212,7 @@ INSERT INTO `kecamatan` (`id_kec`, `nama_kec`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kelurahan`
+-- Struktur dari tabel `kelurahan`
 --
 
 CREATE TABLE `kelurahan` (
@@ -207,10 +222,11 @@ CREATE TABLE `kelurahan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kelurahan`
+-- Dumping data untuk tabel `kelurahan`
 --
 
 INSERT INTO `kelurahan` (`id_kel`, `nama_kel`, `id_kec`) VALUES
+('KEL000', '-', 'KEC00'),
 ('KEL001', 'Mulyodadi', 'KEC01'),
 ('KEL002', 'Sidomulyo', 'KEC01'),
 ('KEL003', 'Sumbermulyo', 'KEC01'),
@@ -652,7 +668,7 @@ INSERT INTO `kelurahan` (`id_kel`, `nama_kel`, `id_kec`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `member`
+-- Struktur dari tabel `member`
 --
 
 CREATE TABLE `member` (
@@ -661,22 +677,25 @@ CREATE TABLE `member` (
   `email_member` varchar(30) NOT NULL,
   `nohp_member` varchar(20) NOT NULL,
   `alamat_member` text NOT NULL,
-  `password` varchar(12) NOT NULL,
+  `username` char(10) NOT NULL,
+  `password` varchar(200) NOT NULL,
+  `level` int(1) NOT NULL,
   `id_admin` char(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `member`
+-- Dumping data untuk tabel `member`
 --
 
-INSERT INTO `member` (`id_member`, `nama_member`, `email_member`, `nohp_member`, `alamat_member`, `password`, `id_admin`) VALUES
-('M01', 'Member1', 'member1@gmail.com', '08132132213', 'Jl.Mangga no 11', 'member1', 'A01'),
-('M02', 'Member 2', 'member2@gmail.com', '081234566788', 'JL rambutan', 'member2', 'A01');
+INSERT INTO `member` (`id_member`, `nama_member`, `email_member`, `nohp_member`, `alamat_member`, `username`, `password`, `level`, `id_admin`) VALUES
+('M00', '-', 'member0@gmail.com', '08132132213', 'Jl.Mangga no 11', 'member1', 'c7764cfed23c5ca3bb393308a0da2306', 2, 'A01'),
+('M01', 'Member1', 'member1@gmail.com', '08132132213', 'Jl.Mangga no 11', 'member1', 'c7764cfed23c5ca3bb393308a0da2306', 2, 'A01'),
+('M02', 'Member 2', 'member2@gmail.com', '081234566788', 'JL rambutan', 'member2', 'member2', 2, 'A01');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `usaha`
+-- Struktur dari tabel `usaha`
 --
 
 CREATE TABLE `usaha` (
@@ -694,66 +713,66 @@ CREATE TABLE `usaha` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `usaha`
+-- Dumping data untuk tabel `usaha`
 --
 
 INSERT INTO `usaha` (`id_usaha`, `nama_ush`, `alamat_ush`, `ket_ush`, `longitude`, `latitude`, `id_member`, `id_admin`, `id_kel`, `id_kec`, `id_kat`) VALUES
 ('US01', 'Putra Insan Keramik & Craft', 'Kasongan, Kajen, Jl. Kasongan, RT. 01, Bangunjiwo, Kajen, Bangunjiwo, Daerah Istimewa Yogyakarta, Bantul, Daerah Istimewa Yogyakarta 55184', 'Usaha gerabah dengan produk souvenir, pot guci', '1103336036', '-78458961', 'M01', 'A01', 'KEL035', 'KEC07', 'KAT01'),
-('US02', 'Moodglory Store', 'Cobongan, Ngestiharjo, Kasihan, Bantul Regency, Special Region of Yogyakarta 55184', 'Usaha Fashion sablonan dengan produk baju, titebas, souvenis, dll', '1103451622', '-77942558', 'M01', 'A01', 'KEL036', 'KEC07', 'KAT02'),
-('US03', 'Kripik Belut Mitra Ibu Tini', 'Jl. Godean No.7, Jetis, Sidoagung, Jetis, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55293', 'Usaha Kuliner dengan produk makanan berupa kripik olahan dari belut', '1102980445', '-77583983', 'M01', 'A01', 'KEL324', 'KEC52', 'KAT02');
+('US02', 'Moodglory Store', 'Cobongan, Ngestiharjo, Kasihan, Bantul Regency, Special Region of Yogyakarta 55184', 'Usaha Fashion sablonan dengan produk baju, titebas, souvenis, dll', '1103451622', '-77942558', 'M01', 'A01', 'KEL036', 'KEC07', 'KAT01'),
+('US03', 'Kripik Belut Mitra Ibu Tini', 'Jl. Godean No.7, Jetis, Sidoagung, Jetis, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55293', 'Usaha Kuliner dengan produk makanan berupa kripik olahan dari belut', '1102980445', '-77583983', 'M01', 'A01', 'KEL324', 'KEC52', 'KAT01');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `admin`
+-- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id_admin`);
 
 --
--- Indexes for table `berita`
+-- Indeks untuk tabel `berita`
 --
 ALTER TABLE `berita`
   ADD PRIMARY KEY (`id_berita`),
   ADD KEY `admin_berita` (`id_admin`);
 
 --
--- Indexes for table `galeri`
+-- Indeks untuk tabel `galeri`
 --
 ALTER TABLE `galeri`
   ADD PRIMARY KEY (`id_galeri`),
   ADD KEY `usaha_galeri` (`id_usaha`);
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id_kat`);
 
 --
--- Indexes for table `kecamatan`
+-- Indeks untuk tabel `kecamatan`
 --
 ALTER TABLE `kecamatan`
   ADD PRIMARY KEY (`id_kec`);
 
 --
--- Indexes for table `kelurahan`
+-- Indeks untuk tabel `kelurahan`
 --
 ALTER TABLE `kelurahan`
   ADD PRIMARY KEY (`id_kel`),
   ADD KEY `kel_kec` (`id_kec`);
 
 --
--- Indexes for table `member`
+-- Indeks untuk tabel `member`
 --
 ALTER TABLE `member`
   ADD PRIMARY KEY (`id_member`),
   ADD KEY `admin_member` (`id_admin`);
 
 --
--- Indexes for table `usaha`
+-- Indeks untuk tabel `usaha`
 --
 ALTER TABLE `usaha`
   ADD PRIMARY KEY (`id_usaha`),
@@ -764,38 +783,38 @@ ALTER TABLE `usaha`
   ADD KEY `kategori_usaha` (`id_kat`);
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `berita`
+-- Ketidakleluasaan untuk tabel `berita`
 --
 ALTER TABLE `berita`
   ADD CONSTRAINT `admin_berita` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `galeri`
+-- Ketidakleluasaan untuk tabel `galeri`
 --
 ALTER TABLE `galeri`
   ADD CONSTRAINT `usaha_galeri` FOREIGN KEY (`id_usaha`) REFERENCES `usaha` (`id_usaha`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `kelurahan`
+-- Ketidakleluasaan untuk tabel `kelurahan`
 --
 ALTER TABLE `kelurahan`
   ADD CONSTRAINT `kel_kec` FOREIGN KEY (`id_kec`) REFERENCES `kecamatan` (`id_kec`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `member`
+-- Ketidakleluasaan untuk tabel `member`
 --
 ALTER TABLE `member`
   ADD CONSTRAINT `admin_member` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `usaha`
+-- Ketidakleluasaan untuk tabel `usaha`
 --
 ALTER TABLE `usaha`
-  ADD CONSTRAINT `Kategori_usaha` FOREIGN KEY (`id_kat`) REFERENCES `kategori` (`id_kat`),
+  ADD CONSTRAINT `Kategori_usaha` FOREIGN KEY (`id_kat`) REFERENCES `kategori` (`id_kat`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `admin_usaha` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `kecamatan_usaha` FOREIGN KEY (`id_kec`) REFERENCES `kecamatan` (`id_kec`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `kelurahan_usaha` FOREIGN KEY (`id_kel`) REFERENCES `kelurahan` (`id_kel`) ON DELETE CASCADE ON UPDATE CASCADE,
