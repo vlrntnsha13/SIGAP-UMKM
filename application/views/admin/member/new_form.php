@@ -47,7 +47,7 @@
 
 								<label for="name">Email Member*</label>
 								<input class="form-control <?php echo form_error('email_member') ? 'is-invalid':'' ?>"
-								 type="text" name="email_member" placeholder="Email member" />
+								 type="email" name="email_member" placeholder="Email member" />
 								<div class="invalid-feedback">
 									<?php echo form_error('email_member') ?>
 								</div>

@@ -35,8 +35,12 @@ class Adusaha extends CI_Controller
             $usaha->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
+        $data['dropdwn'] = $this->adusaha_model->getAllKategori();
+        $data['dropdwn1'] = $this->adusaha_model->getAllKecamatan();
+        $data['dropdwn2'] = $this->adusaha_model->getAllKelurahan();
+        $data['dropdwn3'] = $this->adusaha_model->getAllMember();
 
-        $this->load->view("admin/adusaha/new_form");
+        $this->load->view("admin/adusaha/new_form",$data);
     }
 
     public function edit($id_usaha = null)
@@ -54,6 +58,7 @@ class Adusaha extends CI_Controller
 
         $data["adusaha"] = $usaha->getById($id_usaha);
         if (!$data["adusaha"]) show_404();
+        $data['dropdwn'] = $this->adusaha_model->getAllKategori();
         
         $this->load->view("admin/adusaha/edit_form", $data);
     }

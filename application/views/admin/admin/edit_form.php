@@ -51,7 +51,7 @@
 							<div class="form-group">
 								<label for="name">Email Admin*</label>
 								<input class="form-control <?php echo form_error('email_admin') ? 'is-invalid':'' ?>"
-								 type="text" name="email_admin" placeholder="Email admin" value="<?php echo $admin->email_admin ?>" />
+								 type="email" name="email_admin" placeholder="Email admin" value="<?php echo $admin->email_admin ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('email_admin') ?>
 								</div>
@@ -69,7 +69,7 @@
 							<div class="form-group">
 								<label for="name">Password Admin*</label>
 								<input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>"
-								 type="text" name="password" placeholder="password" value="<?php echo $admin->password ?>" />
+								 type="password" name="password" placeholder="password" value="<?php echo $admin->password ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('password') ?>
 								</div>

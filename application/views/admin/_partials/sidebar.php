@@ -7,7 +7,7 @@
         </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="<?php echo site_url('admin/admin/edit') ?>">
             <i class="fas fa-fw fa-users"></i>
             <span>Ubah Profil Admin</span></a>
     </li>

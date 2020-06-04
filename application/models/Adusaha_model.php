@@ -76,14 +76,33 @@ class Adusaha_model extends CI_Model
     }
 
 
-    function kategori($id_kat){
-		$this->db->where('id_kat', $id_kat);
-        $this->db->order_by('id_kat', 'ASC');
+    function getAllKategori(){
+		
         return $this->db->from('kategori')
+            ->get()
+            ->result();	
+    }
+    
+    function getAllKelurahan(){
+		
+        return $this->db->from('kelurahan')
             ->get()
             ->result();	
 	}
     
+    function getAllKecamatan(){
+		
+        return $this->db->from('kecamatan')
+            ->get()
+            ->result();	
+    }
+    
+    function getAllMember(){
+		
+        return $this->db->from('member')
+            ->get()
+            ->result();	
+	}
     
     public function getById($id_usaha)
     {
@@ -100,10 +119,9 @@ class Adusaha_model extends CI_Model
         $this->longitude = $post["longitude"];
         $this->latitude = $post["latitude"];
         $this->id_member = $post["id_member"];
-        $this->id_admin = $post["id_admin"];
         $this->id_kel = $post["id_kel"];
         $this->id_kec = $post["id_kec"];
-        $this->id_kat = $post["id_kat"];
+        $this->id_kat = $post["kategori"];
         return $this->db->insert($this->_table, $this);
     }
 
@@ -117,10 +135,9 @@ class Adusaha_model extends CI_Model
         $this->longitude = $post["longitude"];
         $this->latitude = $post["latitude"];
         $this->id_member = $post["id_member"];
-        $this->id_admin = $post["id_admin"];
         $this->id_kel = $post["id_kel"];
         $this->id_kec = $post["id_kec"];
-        $this->id_kat = $post["id_kat"];
+        $this->id_kat = $post["kategori"];
         return $this->db->update($this->_table, $this, array('id_usaha' => $post['id_usaha']));
     }
 

@@ -19,20 +19,6 @@ class Admin extends CI_Controller
         $this->load->view("admin/admin/list", $data);
     }
 
-    public function add()
-    {
-        $admin = $this->admin_model;
-        $validation = $this->form_validation;
-        $validation->set_rules($admin->rules());
-
-        if ($validation->run()) {
-            $admin->save();
-            $this->session->set_flashdata('success', 'Berhasil disimpan');
-        }
-
-        $this->load->view("admin/admin/new_form");
-    }
-
     public function edit($id_admin = null)
     {
         if (!isset($id_admin)) redirect('admin/admin');
@@ -43,7 +29,7 @@ class Admin extends CI_Controller
 
         if ($validation->run()) {
             $admin->update();
-            $this->session->set_flashdata('success', 'berita Berhasil diupdate');
+            $this->session->set_flashdata('success', 'Data Admin Berhasil di update');
         }
 
         $data["admin"] = $admin->getById($id_admin);

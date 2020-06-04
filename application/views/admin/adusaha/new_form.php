@@ -86,35 +86,50 @@
 							</div>
 
 							<div class="form-group">
-								<label for="link">ID Member*</label>
-								<input class="form-control <?php echo form_error('id_member') ? 'is-invalid':'' ?>"
-								 type="text" name="id_member" placeholder="ID Member" />
-								<div class="invalid-feedback">
-									<?php echo form_error('id_member') ?>
-								</div>
+                                <label for="name">Nama Member*</label>
+								<select class="form-control" name="member" id="member">
+								<?php
+									foreach($dropdwn3 as $d){
+										echo "<option value=".$d->id_member.">".$d->nama_member."</option>";
+									}
+								//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
+								?>
+								</select>
 							</div>
 
                             <div class="form-group">
-                                <label for="name">ID Kelurahan*</label>
-								<input class="form-control <?php echo form_error('id_kel') ? 'is-invalid':'' ?>"
-								 type="text" name="id_kel" placeholder="ID Kelurahan" />
-								<div class="invalid-feedback">
-									<?php echo form_error('id_kel') ?>
-								</div>
+                                <label for="name">Nama Kelurahan*</label>
+								<select class="form-control" name="kelurahan" id="kelurahan">
+								<?php
+									foreach($dropdwn2 as $d){
+										echo "<option value=".$d->id_kel.">".$d->nama_kel."</option>";
+									}
+								//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
+								?>
+								</select>
 							</div>
 
                             <div class="form-group">
-                                <label for="name">ID Kecamatan*</label>
-								<input class="form-control <?php echo form_error('id_kec') ? 'is-invalid':'' ?>"
-								 type="text" name="id_kec" placeholder="ID Kecamatan" />
-								<div class="invalid-feedback">
-									<?php echo form_error('id_kec') ?>
-								</div>
+                                <label for="name">Nama Kecamatan*</label>
+								<select class="form-control" name="kecamatan" id="kecamatan">
+								<?php
+									foreach($dropdwn1 as $d){
+										echo "<option value=".$d->id_kec.">".$d->nama_kec."</option>";
+									}
+								//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
+								?>
+								</select>
 							</div>
 
                             <div class="form-group">
                                 <label for="name">Nama Kategori*</label>
-								<select class="form-control" name="kategori" id="kategori">
+								<select class="form-control" name="kategori" id="kategori" type="text">
+								<?php
+									foreach($dropdwn as $d){
+										echo "<option value=".$d->id_kat.">".$d->nama_kat."</option>";
+									}
+								//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
+								?>
 								</select>
 							</div>
 
@@ -146,30 +161,30 @@
 
 		<script>
 
-		$("#kategori").change(function(){
+		// // $("#kategori").change(function(){
 
-		// variabel dari nilai combo box kendaraan
-		var id_kat = $("#kategori").val();
+		// // // variabel dari nilai combo box kendaraan
+		// // var id_kat = $("#kategori").val();
 
-		// Menggunakan ajax untuk mengirim dan dan menerima data dari server
-			$.ajax({
-				url : "<?php echo base_url();?>/kategori/id_kat",
-				method : "POST",
-				data : {id_kat:id_kat},
-				async : false,
-				dataType : 'json',
-				success: function(data){
-					var html = '';
-					var i;
+		// // // Menggunakan ajax untuk mengirim dan dan menerima data dari server
+		// // 	$.ajax({
+		// // 		url : "<?php echo base_url();?>/kategori/id_kat",
+		// // 		method : "POST",
+		// // 		data : {id_kat:id_kat},
+		// // 		async : false,
+		// // 		dataType : 'json',
+		// // 		success: function(data){
+		// // 			var html = '';
+		// // 			var i;
 
-					for(i=0; i<data.length; i++){
-						html += '<option value='+data[i].id_kat+'>'+data[i].id_kat+'</option>';
-					}
-					$('#kategori').html(html);
+		// // 			for(i=0; i<data.length; i++){
+		// // 				html += '<option value='+data[i].id_kat+'>'+data[i].id_kat+'</option>';
+		// // 			}
+		// // 			$('#kategori').html(html);
 
-				}
-			});
-		});
+		// // 		}
+		// // 	});
+		// // });
 </script>
 	
 </body>

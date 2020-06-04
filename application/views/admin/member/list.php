@@ -21,7 +21,9 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/member/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+						<a href="<?php echo site_url('admin/member/add') ?>"><i class="fas fa-plus"></i> Tambah Member</a>
+						<a href="<?php echo site_url('admin/') ?>"><i class="fas fa-print">
+						</i> Kirim Laporan Data Member</a>
 					</div>
 					<div class="card-body">
 
@@ -44,22 +46,23 @@
 									<tr>
 										<td width="150">
 										<?php echo $member->id_member ?>
-										</td> <td width="150">
+										</td> 
+										<td width="150">
 											<?php echo $member->nama_member ?>
 										</td>
-										</td> <td width="150">
+										<td width="150">
 											<?php echo $member->email_member ?>
 										</td>
-										</td> <td width="150">
+										<td width="150">
 											<?php echo $member->nohp_member ?>
 										</td>
-										</td> <td width="150">
+										<td width="150">
 											<?php echo $member->alamat_member ?>
 										</td>
-										</td> <td width="150">
+										<td width="100">
 											<?php echo $member->password ?>
-										</td>
-										</td> <td width="150">
+										</td> 
+										<td width="150">
 											<?php echo $member->id_admin ?>
 										</td>
 										<td width="250">

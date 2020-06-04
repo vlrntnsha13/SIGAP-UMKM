@@ -34,7 +34,6 @@
 										<th>Nama Admin</th>
 										<th>Email Admin</th>
 										<th>Nohp Admin</th>
-										<th>Password Admin</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -50,9 +49,6 @@
 										</td>
 										</td> <td width="150">
 											<?php echo $admin->nohp_admin ?>
-										</td>
-										</td> <td width="150">
-											<?php echo $admin->password ?>
 										</td>
 										<td width="250">
 											<a href="<?php echo site_url('admin/admin/edit/'.$admin->id_admin) ?>"
