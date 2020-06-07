@@ -10,9 +10,14 @@ class Musaha_model extends CI_Model
     public $ket_ush;
     public $longitude;
     public $latitude;
+    public $id_member;
+    public $nama_mmber;
     public $id_kel;
+    public $nama_kel;
     public $id_kec;
+    public $nama_kec;
     public $id_kat;
+    public $nama_kat;
 
     public function rules(){
         return [
@@ -40,24 +45,63 @@ class Musaha_model extends CI_Model
             'label'=> 'Latitude',
             'rules' => 'required'],
 
-            ['field' => 'ide_kel',
-            'label'=> 'ID Kelurahan',
+            ['field' => 'nama_member',
+            'label'=> 'Nama Member',
             'rules' => 'required'],
 
-            ['field' => 'id_kec',
-            'label'=> 'ID Kecamatan',
+            ['field' => 'nama_kel',
+            'label'=> 'Nama Kelurahan',
+            'rules' => 'required'],
+
+            ['field' => 'nama_kec',
+            'label'=> 'Nama Kecamatan',
             'rules' => 'required'],
             
-            ['field' => 'id_kat',
-            'label'=> 'ID Kategori',
+            ['field' => 'nama_kat',
+            'label'=> 'Nama Kategori',
             'rules' => 'required'],
         ];
     }
 
     public function getAll()
     {
-        return $this->db->get($this->_table)->result();
+        $this->db->select('id_usaha, nama_ush, alamat_ush, ket_ush, longitude, latitude, nama_member, nama_kel, nama_kec, nama_kat');
+        $this->db->from('usaha');
+        $this->db->join('member','member.id_member=usaha.id_member');
+        $this->db->join('kelurahan','kelurahan.id_kel=usaha.id_kel');
+        $this->db->join('kecamatan','kecamatan.id_kec=usaha.id_kec');
+        $this->db->join('kategori','kategori.id_kat=usaha.id_kat');
+        $query = $this->db->get();
+        return $query->result();
     }
+
+    function getAllKategori(){
+		
+        return $this->db->from('kategori')
+            ->get()
+            ->result();	
+    }
+    
+    function getAllKelurahan(){
+		
+        return $this->db->from('kelurahan')
+            ->get()
+            ->result();	
+	}
+    
+    function getAllKecamatan(){
+		
+        return $this->db->from('kecamatan')
+            ->get()
+            ->result();	
+    }
+    
+    function getAllMember(){
+		
+        return $this->db->from('member')
+            ->get()
+            ->result();	
+	}
     
     public function getById($id_usaha)
     {
@@ -73,9 +117,10 @@ class Musaha_model extends CI_Model
         $this->ket_ush = $post["ket_ush"];
         $this->longitude = $post["longitude"];
         $this->latitude = $post["latitude"];
+        $this->id_member = $post["id_member"];
         $this->id_kel = $post["id_kel"];
         $this->id_kec = $post["id_kec"];
-        $this->id_kat = $post["id_kat"];
+        $this->id_kat = $post["kategori"];
         return $this->db->insert($this->_table, $this);
     }
 
@@ -88,9 +133,10 @@ class Musaha_model extends CI_Model
         $this->ket_ush = $post["ket_ush"];
         $this->longitude = $post["longitude"];
         $this->latitude = $post["latitude"];
+        $this->id_member = $post["id_member"];
         $this->id_kel = $post["id_kel"];
         $this->id_kec = $post["id_kec"];
-        $this->id_kat = $post["id_kat"];
+        $this->id_kat = $post["kategori"];
         return $this->db->update($this->_table, $this, array('id_usaha' => $post['id_usaha']));
     }
 

@@ -22,7 +22,7 @@
 				<div class="card mb-3">
 					<div class="card-header">
 						<a href="<?php echo site_url('admin/member/add') ?>"><i class="fas fa-plus"></i> Tambah Member</a>
-						<a href="<?php echo site_url('admin/') ?>"><i class="fas fa-print">
+						<a href="<?php echo site_url('admin/email') ?>"><i class="fas fa-print">
 						</i> Kirim Laporan Data Member</a>
 					</div>
 					<div class="card-body">

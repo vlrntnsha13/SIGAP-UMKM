@@ -19,8 +19,8 @@
 
         
     </form>
-    
-    <input class="btn btn-success" href="http://localhost/sigapumkm/index.php/admin/login" type="submit" name="btn" value="Login" />
+    <a class="btn btn-success" href="<?php echo site_url('admin/login')?>" type="submit" name="" value="Login">LOGIN</a>
+    <!--<input href="<?php echo site_url('admin/login_page') ?>" class="btn btn-success" type="submit" name="" value="Login" /> !-->
     </ul>
 
 

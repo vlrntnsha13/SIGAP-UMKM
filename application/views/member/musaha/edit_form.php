@@ -85,32 +85,52 @@
 								</div>
 							</div>
 
-                            <div class="form-group">
-								<label for="link">ID Kelurahan*</label>
+							<div class="form-group">
+								<label for="name">ID Member*</label>
+								<input class="form-control <?php echo form_error('id_member') ? 'is-invalid':'' ?>"
+								 type="dropdown" name="id_member" placeholder="ID Admin" value="<?php echo $musaha->id_member ?>" />
+								<div class="invalid-feedback">
+									<?php echo form_error('id_member') ?>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="name">ID Admin*</label>
+								<input class="form-control <?php echo form_error('id_admin') ? 'is-invalid':'' ?>"
+								 type="dropdown" name="id_admin" placeholder="ID Admin" value="<?php echo $musaha->id_admin ?>" />
+								<div class="invalid-feedback">
+									<?php echo form_error('id_admin') ?>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="name">ID Kelurahan*</label>
 								<input class="form-control <?php echo form_error('id_kel') ? 'is-invalid':'' ?>"
-								 type="text" name="id_kel" placeholder="ID Kelurahan" value="<?php echo $musaha->id_kel ?>" />
+								 type="dropdown" name="id_kel" placeholder="ID Kelurahan" value="<?php echo $musaha->id_kel ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('id_kel') ?>
 								</div>
 							</div>
 
-                            <div class="form-group">
-								<label for="link">ID Kecamatan*</label>
+							<div class="form-group">
+								<label for="name">ID Kecamatan*</label>
 								<input class="form-control <?php echo form_error('id_kec') ? 'is-invalid':'' ?>"
-								 type="text" name="id_kec" placeholder="ID Kecamatan" value="<?php echo $musaha->id_kec ?>" />
+								 type="dropdown" name="id_kec" placeholder="ID Kecamatan" value="<?php echo $musaha->id_kec ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('id_kec') ?>
 								</div>
 							</div>
 
-                            <div class="form-group">
-								<label for="link">ID Kategori*</label>
-								<input class="form-control <?php echo form_error('id_kat') ? 'is-invalid':'' ?>"
-								 type="text" name="id_kat" placeholder="ID Kategori" value="<?php echo $musaha->id_kat ?>" />
-								<div class="invalid-feedback">
-									<?php echo form_error('id_kat') ?>
-								</div>
-							</div>
+							<div class="form-group">
+								<label for="name">Nama Kategori*</label>
+								<select class="form-control" name="kategori" id="kategori">
+								<?php
+									foreach($dropdwn as $d){
+										echo "<option value=".$d->id_kat.">".$d->nama_kat."</option>";
+									}
+								//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
+								?>
+								</select>
 
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />
 						</form>

@@ -33,11 +33,13 @@
 										<th>ID usaha</th>
 										<th>Nama usaha</th>
                                         <th>Keterangan usaha</th>
+										<th>Alamat usaha</th>
 										<th>Longitude usaha</th>
                                         <th>Latitude usaha</th>
-										<th>ID Kelurahan usaha</th>
-										<th>ID Kecamatan usaha</th>
-										<th>ID Kategori usaha</th>
+										<th>Nama Member</th>
+										<th>Nama Kelurahan</th>
+										<th>Nama Kecamatan</th>
+										<th>Nama Kategori</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -57,15 +59,20 @@
 											<?php echo $usaha->latitude ?>
 										</td>
                                         </td> <td width="150">
-											<?php echo $usaha->id_kel ?>
+											<?php echo $usaha->nama_member ?>
 										</td>
                                         </td> <td width="150">
-											<?php echo $usaha->id_kec ?>
+											<?php echo $usaha->nama_kel ?>
 										</td>
                                         </td> <td width="150">
-											<?php echo $usaha->id_kat ?>
+											<?php echo $usaha->nama_kec ?>
+										</td>
+                                        </td> <td width="150">
+											<?php echo $usaha->nama_kat ?>
 										</td>
 										<td width="250">
+											<a href="<?php echo site_url('member/mgaleri')?>"
+											 class="btn btn-small"><i class="fas fa-image"></i> Lihat Galeri</a>
 											<a href="<?php echo site_url('member/musaha/edit/'.$usaha->id_usaha) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
 											<a onclick="deleteConfirm('<?php echo site_url('mmeber/musaha/delete/'.$usaha->id_usaha) ?>')"

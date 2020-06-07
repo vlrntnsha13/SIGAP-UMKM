@@ -20,9 +20,9 @@
 
 				<!-- DataTables -->
 				<div class="card mb-3">
-					<div class="card-header">
+					<!--<div class="card-header">
 						<a href="<?php echo site_url('admin/adusaha/add') ?>"><i class="fas fa-plus"></i> Add New</a>
-					</div>
+					</div> !-->
 					<div class="card-body">
 
 						<div class="table-responsive">
@@ -73,10 +73,8 @@
 											<?php echo $usaha->nama_kat ?>
 										</td>
 										<td width="250">
-											<a href="<?php echo site_url('admin/adusaha/edit/'.$usaha->id_usaha) ?>"
-											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-											<a onclick="deleteConfirm('<?php echo site_url('admin/adusaha/delete/'.$usaha->id_usaha) ?>')"
-											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+											<a href="<?php echo site_url('admin/adgaleri') ?>"
+											 class="btn btn-small"><i class="fas fa-image"></i>Lihat Gambar</a>
 										</td>
 									</tr>
 									<?php endforeach; ?>

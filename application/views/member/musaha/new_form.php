@@ -85,31 +85,52 @@
 								</div>
 							</div>
 
-                            <div class="form-group">
-                                <label for="name">ID Kelurahan*</label>
-								<input class="form-control <?php echo form_error('id_kel') ? 'is-invalid':'' ?>"
-								 type="text" name="id_kel" placeholder="ID Kelurahan" />
-								<div class="invalid-feedback">
-									<?php echo form_error('id_kel') ?>
-								</div>
+							<div class="form-group">
+                                <label for="name">Nama Member*</label>
+								<select class="form-control" name="member" id="member">
+								<?php
+									foreach($dropdwnmem as $d){
+										echo "<option value=".$d->id_member.">".$d->nama_member."</option>";
+									}
+								//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
+								?>
+								</select>
 							</div>
 
                             <div class="form-group">
-                                <label for="name">ID Kecamatan*</label>
-								<input class="form-control <?php echo form_error('id_kec') ? 'is-invalid':'' ?>"
-								 type="text" name="id_kec" placeholder="ID Kecamatan" />
-								<div class="invalid-feedback">
-									<?php echo form_error('id_kec') ?>
-								</div>
+                                <label for="name">Nama Kelurahan*</label>
+								<select class="form-control" name="kelurahan" id="kelurahan">
+								<?php
+									foreach($dropdwnkel as $d){
+										echo "<option value=".$d->id_kel.">".$d->nama_kel."</option>";
+									}
+								//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
+								?>
+								</select>
 							</div>
 
                             <div class="form-group">
-                                <label for="name">ID Kategori*</label>
-								<input class="form-control <?php echo form_error('id_kat') ? 'is-invalid':'' ?>"
-								 type="text" name="id_kat" placeholder="ID Kategori" />
-								<div class="invalid-feedback">
-									<?php echo form_error('id_kat') ?>
-								</div>
+                                <label for="name">Nama Kecamatan*</label>
+								<select class="form-control" name="kecamatan" id="kecamatan">
+								<?php
+									foreach($dropdwnkec as $d){
+										echo "<option value=".$d->id_kec.">".$d->nama_kec."</option>";
+									}
+								//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
+								?>
+								</select>
+							</div>
+
+                            <div class="form-group">
+								<label for="name">Nama Kategori*</label>
+								<select class="form-control" name="kategori" id="kategori">
+								<?php
+									foreach($dropdwnkat as $d){
+										echo "<option value=".$d->id_kat.">".$d->nama_kat."</option>";
+									}
+								//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
+								?>
+								</select>
 							</div>
 
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />

@@ -64,7 +64,7 @@ class Adgaleri_model extends CI_Model
 	
 	private function _uploadImage()
 	{
-		$config['upload_path']          = './upload/galeri/';
+		$config['upload_path']          = './upload/adgaleri/';
 		$config['allowed_types']        = 'gif|jpg|png';
 		$config['file_name']            = $this->id_galeri;
 		$config['overwrite']			= true;
@@ -86,7 +86,7 @@ class Adgaleri_model extends CI_Model
 		$galeri = $this->getById($id);
 		if ($galeri->image != "default.jpg") {
 			$filename = explode(".", $galeri->image)[0];
-			return array_map('unlink', glob(FCPATH."upload/galeri/$filename.*"));
+			return array_map('unlink', glob(FCPATH."upload/adgaleri/$filename.*"));
 		}
 	}
 

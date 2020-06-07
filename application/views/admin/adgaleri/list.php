@@ -40,13 +40,7 @@
 											<?php echo $galeri->nama_gal ?>
 										</td>
 										<td>
-											<img src="<?php echo base_url('upload/galeri/'.$galeri->image) ?>" width="64" />
-										</td>
-										<td width="250">
-											<a href="<?php echo site_url('admin/adgaleri/edit/'.$galeri->id_galeri) ?>"
-											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-											<a onclick="deleteConfirm('<?php echo site_url('admin/adgaleri/delete/'.$galeri->id_galeri) ?>')"
-											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
+											<img src="<?php echo base_url('upload/adgaleri/'.$galeri->image) ?>" width="64" />
 										</td>
 									</tr>
 									<?php endforeach; ?>

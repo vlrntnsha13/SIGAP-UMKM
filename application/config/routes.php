@@ -54,3 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['about'] = 'welcome/about';
 $route['admin'] = 'admin/overview';
+$route['member'] = 'member/overview';
+$route['send-email'] = 'email controller';
+$route['email'] = 'email controller/send';
+
