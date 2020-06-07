@@ -20,9 +20,6 @@
 
 				<!-- DataTables -->
 				<div class="card mb-3">
-					<div class="card-header">
-						<a href="<?php echo site_url('admin/adgaleri/add') ?>"><i class="fas fa-plus"></i> Add New</a>
-					</div>
 					<div class="card-body">
 
 						<div class="table-responsive">
@@ -31,6 +28,7 @@
 									<tr>
 										<th>Name</th>
 										<th>Foto</th>
+										<th>Nama Usaha</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -41,6 +39,9 @@
 										</td>
 										<td>
 											<img src="<?php echo base_url('upload/adgaleri/'.$galeri->image) ?>" width="64" />
+										</td>
+										<td width="150">
+											<?php echo $galeri->nama_ush ?>
 										</td>
 									</tr>
 									<?php endforeach; ?>

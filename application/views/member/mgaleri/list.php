@@ -31,6 +31,7 @@
 									<tr>
 										<th>Name</th>
 										<th>Foto</th>
+										<th>Nama Usaha</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -41,6 +42,9 @@
 										</td>
 										<td>
 											<img src="<?php echo base_url('upload/adgaleri/'.$galeri->image) ?>" width="64" />
+										</td>
+										<td width="150">
+											<?php echo $galeri->nama_ush ?>
 										</td>
 										<td width="250">
 											<a href="<?php echo site_url('admin/adgaleri/edit/'.$galeri->id_galeri) ?>"

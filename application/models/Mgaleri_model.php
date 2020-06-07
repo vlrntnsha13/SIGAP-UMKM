@@ -8,6 +8,7 @@ class Mgaleri_model extends CI_Model
     public $nama_gal;
     public $image = "default.jpg";
     public $id_usaha;
+    public $nama_ush;
 
     public function rules()
     {
@@ -20,15 +21,19 @@ class Mgaleri_model extends CI_Model
             'label' => 'Nama galeri',
             'rules' => 'required'],
 
-            ['field' => 'id_usaha',
-            'label' => 'ID Usaha',
+            ['field' => 'nama_ush',
+            'label' => 'Nama usaha',
             'rules' => 'required']
         ];
     }
 
     public function getAll()
     {
-        return $this->db->get($this->_table)->result();
+        $this->db->select('id_galeri, nama_gal, image, nama_ush');
+        $this->db->from('galeri');
+        $this->db->join('usaha','usaha.id_usaha=galeri.id_usaha');
+        $query = $this->db->get();
+        return $query->result();
     }
     
     public function getById($id_galeri)

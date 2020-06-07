@@ -85,12 +85,16 @@
 							</div>
 
 							<div class="form-group">
-								<label for="name">ID admin*</label>
-								<input class="form-control <?php echo form_error('id_admin') ? 'is-invalid':'' ?>"
-								 type="dropdown" name="id_admin" placeholder="ID Admin" value="<?php echo $member->id_admin ?>" />
-								<div class="invalid-feedback">
-									<?php echo form_error('id_admin') ?>
-								</div>
+								<label for="name">Nama Admin*</label>
+								<select class="form-control" name="admin" id="admin">
+								<?php
+									foreach($dropdwn as $d){
+										echo "<option value=".$d->id_admin.">".$d->nama_admin."</option>";
+									}
+								//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
+								?>
+								</select>
+							</div>
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />
 						</form>
 

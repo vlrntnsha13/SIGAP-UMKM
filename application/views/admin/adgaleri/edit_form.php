@@ -58,6 +58,10 @@
 								</div>
 							</div>
 
+							<input type="hidden" name="id_usaha" value="<?php echo $adgaleri->id_usaha?>" />
+
+
+
 
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />
 						</form>

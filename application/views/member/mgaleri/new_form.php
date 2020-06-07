@@ -60,15 +60,13 @@
 
 							<div class="form-group">
 								<label for="name">ID Usaha*</label>
-								<select class="form-control" id="id_usaha" name="id_usaha" required>
-                        			<option value="">No Selected</option>
-
-                   				</select>
+								<input class="form-control <?php echo form_error('id_usaha') ? 'is-invalid':'' ?>"
+								 type="dropdown" name="id_usaha" placeholder="ID Usaha" />
 								<div class="invalid-feedback">
 									<?php echo form_error('id_usaha') ?>
 								</div>
 							</div>
-							</div>
+
 								<!--/ <input class="form-control <?php echo form_error('id_usaha') ? 'is-invalid':'' ?>"
 								 type="dropdown" name="id_usaha" placeholder="ID Usaha" /> -->
 

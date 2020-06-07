@@ -7,6 +7,8 @@ class Adgaleri_model extends CI_Model
     public $id_galeri;
     public $nama_gal;
     public $image = "default.jpg";
+    public $id_usaha;
+    public $nama_ush;
 
     public function rules()
     {
@@ -17,14 +19,22 @@ class Adgaleri_model extends CI_Model
 
             ['field' => 'nama_gal',
             'label' => 'Nama galeri',
+            'rules' => 'required'],
+
+            ['field' => 'nama_ush',
+            'label' => 'Nama usaha',
             'rules' => 'required']
         ];
     }
 
     public function getAll()
     {
-        return $this->db->get($this->_table)->result();
-    }
+        $this->db->select('id_galeri, nama_gal, image, nama_ush');
+        $this->db->from('galeri');
+        $this->db->join('usaha','usaha.id_usaha=galeri.id_usaha');
+        $query = $this->db->get();
+        return $query->result();
+     }
     
     public function getById($id_galeri)
     {
@@ -36,7 +46,8 @@ class Adgaleri_model extends CI_Model
         $post = $this->input->post();
         $this->id_galeri = uniqid();
         $this->nama_gal = $post["nama_gal"];
-		$this->image = $this->_uploadImage();
+        $this->image = $this->_uploadImage();
+        $this->id_usaha = $post["id_usaha"];
         $this->db->insert($this->_table, $this);
     }
 
@@ -51,7 +62,8 @@ class Adgaleri_model extends CI_Model
             $this->image = $this->_uploadImage();
         } else {
             $this->image = $post["old_image"];
-		}
+        }
+        $this->id_usaha = $post["id_usaha"];
 
         $this->db->update($this->_table, $this, array('id_galeri' => $post['id_galeri']));
     }

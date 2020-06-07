@@ -27,7 +27,7 @@
                     <input type="file" class="custom-file-input" id="customFile">
                     <label class="custom-file-label" for="customFile">Choose file</label>
                   </div>
-                <input type="submit" value="Send Email" />
+                <input type="submit"  value="Send Email" />
             </form>
         </div>
 

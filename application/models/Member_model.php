@@ -11,6 +11,7 @@ class Member_model extends CI_Model
     public $alamat_member;
     public $password;
     public $id_admin;
+    public $nama_admin;
 
     public function rules(){
         return [
@@ -38,14 +39,25 @@ class Member_model extends CI_Model
             'label'=> 'Password',
             'rules' => 'required'],
 
-            ['field' => 'id_admin',
-            'label'=> 'ID Admin',
+            ['field' => 'nama_admin',
+            'label'=> 'Nama Admin',
             'rules' => 'required'],
         ];
     }
     public function getAll()
     {
-        return $this->db->get($this->_table)->result();
+        $this->db->select('id_member, nama_member, email_member, nohp_member, alamat_member, member.password, nama_admin');
+        $this->db->from('member');
+        $this->db->join('admin','admin.id_admin=member.id_admin');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
+    function getAllAdmin(){
+		
+        return $this->db->from('admin')
+            ->get()
+            ->result();	
     }
     
     public function getById($id_member)
@@ -62,7 +74,7 @@ class Member_model extends CI_Model
         $this->nohp_member = $post["nohp_member"];
         $this->alamat_member = $post["alamat_member"];
         $this->password = $post["password"];
-        $this->id_admin = $post["id_admin"];
+        $this->id_admin = $post["admin"];
         return $this->db->insert($this->_table, $this);
     }
 
@@ -75,7 +87,7 @@ class Member_model extends CI_Model
         $this->nohp_member = $post["nohp_member"];
         $this->alamat_member = $post["alamat_member"];
         $this->password = $post["password"];
-        $this->id_admin = $post["id_admin"];
+        $this->id_admin = $post["admin"];
         return $this->db->update($this->_table, $this, array('id_member' => $post['id_member']));
     }
 
