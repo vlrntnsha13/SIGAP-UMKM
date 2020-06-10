@@ -75,15 +75,13 @@
 								</div>
 							</div>
 
-							<div class="form-group">
-								<label for="name">Nama Admin*</label>
-								<select class="form-control" name="admin" id="admin">
-								<?php
-									foreach($dropdwn as $d){
-										echo "<option value=".$d->id_admin.">".$d->nama_admin."</option>";
-									}
-								//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
-								?>
+							<label for="name">ID Admin*</label>
+								<input class="form-control <?php echo form_error('id_admin') ? 'is-invalid':'' ?>"
+								 type="text" name="id_admin" placeholder="id_admin" />
+								<div class="invalid-feedback">
+									<?php echo form_error('id_admin') ?>
+								</div>
+							</div>
 								</select>
 							</div>
 

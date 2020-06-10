@@ -21,7 +21,7 @@ class Kelurahan_model extends CI_Model
 
             ['field' => 'nama_kec',
             'label'=> 'Nama Kecamatan',
-            'rules' => 'required'],
+            'rules' => 'required']
         ];
     }
 

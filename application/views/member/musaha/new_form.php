@@ -87,7 +87,7 @@
 
 							<div class="form-group">
                                 <label for="name">Nama Member*</label>
-								<select class="form-control" name="member" id="member">
+								<select class="form-control" name="id_member" id="id_member">
 								<?php
 									foreach($dropdwnmem as $d){
 										echo "<option value=".$d->id_member.">".$d->nama_member."</option>";
@@ -99,7 +99,7 @@
 
                             <div class="form-group">
                                 <label for="name">Nama Kelurahan*</label>
-								<select class="form-control" name="kelurahan" id="kelurahan">
+								<select class="form-control" name="id_kel" id="id_kel">
 								<?php
 									foreach($dropdwnkel as $d){
 										echo "<option value=".$d->id_kel.">".$d->nama_kel."</option>";
@@ -111,7 +111,7 @@
 
                             <div class="form-group">
                                 <label for="name">Nama Kecamatan*</label>
-								<select class="form-control" name="kecamatan" id="kecamatan">
+								<select class="form-control" name="id_kec" id="id_kec">
 								<?php
 									foreach($dropdwnkec as $d){
 										echo "<option value=".$d->id_kec.">".$d->nama_kec."</option>";
