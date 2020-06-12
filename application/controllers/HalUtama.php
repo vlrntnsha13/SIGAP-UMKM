@@ -1,17 +1,22 @@
 <?php
 
 class HalUtama extends CI_Controller {
-    public function __construct()
-    {
-		parent::__construct();
-		//$this->load->model("user_model");
-			//if($this->user_model->isNotLogin()) redirect(site_url('admin/login'));
-	}
-
-	public function index()
+	public function __construct()
 	{
-        // load view halUtama.php
-        $this->load->view("halUtama.php");
+		parent::__construct();
+		$this->load->helper("url");
+		$this->load->model('halUtama_model');
 	}
-
+ 
+	public function cari() 
+	{
+		$this->load->view('search');
+	}
+ 
+	public function hasil()
+	{
+		$data2['cari'] = $this->halUtama_model->cariUsaha();
+		$this->load->view('result', $data2);
+	}
+	
 }

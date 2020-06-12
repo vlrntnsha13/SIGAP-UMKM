@@ -20,9 +20,9 @@
 
 				<!-- DataTables -->
 				<div class="card mb-3">
-					<!--<div class="card-header">
+					<div class="card-header">
 						<a href="<?php echo site_url('admin/adusaha/add') ?>"><i class="fas fa-plus"></i> Add New</a>
-					</div> !-->
+					</div>
 					<div class="card-body">
 
 						<div class="table-responsive">

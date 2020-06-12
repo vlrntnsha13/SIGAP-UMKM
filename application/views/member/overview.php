@@ -91,6 +91,15 @@
 		</div>
 
 		<div class="card-body">
+		<h1> SELAMAT DATANG DI SISTEM INFORMASI GEOGRAFIS UMKM YOGYAKARTA </H1>
+		
+		   
+        <link rel="stylesheet" href="<?php echo base_url('/css/map.css') ?>">
+        
+        <div id="map" class="map"></div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.js"></script>
+		<script src="<?php echo base_url('/js/map.js') ?>"></script>
+
 		</div>
 
 		<!-- Area Chart Example-->

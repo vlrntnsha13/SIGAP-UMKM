@@ -7,10 +7,10 @@
   <?php if($this->session->userdata('akses')=='1'):?>
       <li class="active"><a href="<?php echo base_url().'index.php/page'?>">Dashboard</a></li>
       <li><a href="<?php echo base_url().'index.php/admin'?>">Data admin</a></li>
-  <!--Akses Menu Untuk Dosen-->
+  <!--Akses Menu Untuk Member-->
   <?php elseif($this->session->userdata('akses')=='2'):?>
       <li class="active"><a href="<?php echo base_url().'index.php/page'?>">Dashboard</a></li>
-      <li><a href="<?php echo base_url().'index.php/page/data_mahasiswa'?>">Data Member</a></li>
+      <li><a href="<?php echo base_url().'index.php/page/member'?>">Data Member</a></li>
   <?php endif;?>
   </ul>
  

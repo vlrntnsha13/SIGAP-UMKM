@@ -27,7 +27,7 @@ class Member extends CI_Controller
 
         if ($validation->run()) {
             $member->save();
-            $this->session->set_flashdata('success', 'Berhasil disimpan');
+            $this->session->set_flashdata('success', 'Data Member Berhasil disimpan');
         }
 
         $this->load->view("admin/member/new_form");
@@ -43,7 +43,7 @@ class Member extends CI_Controller
 
         if ($validation->run()) {
             $member->update();
-            $this->session->set_flashdata('success', 'berita Berhasil diupdate');
+            $this->session->set_flashdata('success', 'Data Member Berhasil diupdate');
         }
 
         $data["member"] = $member->getById($id_member);

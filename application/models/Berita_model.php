@@ -100,7 +100,7 @@ class Berita_model extends CI_Model
 
     private function _uploadImage()
 	{
-		$config['upload_path']          = './upload/berita/';
+		$config['upload_path']          = './upload/images/';
 		$config['allowed_types']        = 'gif|jpg|png';
 		$config['file_name']            = $this->id_berita;
 		$config['overwrite']			= true;

@@ -7,7 +7,7 @@ class Member_model extends CI_Model
     public $id_member;
     public $nama_member;
     public $email_member;
-    public $nohp_mmeber;
+    public $nohp_member;
     public $alamat_member;
     public $password;
     public $id_admin;

@@ -31,10 +31,10 @@ class Adusaha extends CI_Controller
         $validation = $this->form_validation;
         $validation->set_rules($usaha->rules());
 
-        if ($validation->run()) {
+        
             $usaha->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
-        }
+        
         $data['dropdwn'] = $this->adusaha_model->getAllKategori();
         $data['dropdwn1'] = $this->adusaha_model->getAllKecamatan();
         $data['dropdwn2'] = $this->adusaha_model->getAllKelurahan();

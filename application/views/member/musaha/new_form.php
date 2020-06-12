@@ -67,6 +67,14 @@
 								</div>
 							</div>
 
+							
+							<link href="<?php echo base_url('/css/map.css') ?>">
+        
+							<div id="map" class="map">
+								<script src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.js"></script>
+								<script src="<?php echo base_url('/js/map.js') ?>"></script>
+							</div>
+
 							<div class="form-group">
                                 <label for="name">Longitude*</label>
 								<input class="form-control <?php echo form_error('longitude') ? 'is-invalid':'' ?>"

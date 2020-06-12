@@ -45,21 +45,21 @@ class Adusaha_model extends CI_Model
             'label'=> 'Latitude',
             'rules' => 'required'],
 
-            ['field' => 'nama_member',
+            ['field' => 'id_member',
             'label'=> 'Nama Member',
             'rules' => 'required'],
 
-            ['field' => 'nama_kel',
+            ['field' => 'id_kel',
             'label'=> 'Nama Kelurahan',
             'rules' => 'required'],
 
-            ['field' => 'nama_kec',
+            ['field' => 'id_kec',
             'label'=> 'Nama Kecamatan',
             'rules' => 'required'],
             
-            ['field' => 'nama_kat',
+            ['field' => 'id_kat',
             'label'=> 'Nama Kategori',
-            'rules' => 'required'],
+            'rules' => 'required']
         ];
     }
 
@@ -80,7 +80,7 @@ class Adusaha_model extends CI_Model
 		
         return $this->db->from('kategori')
             ->get()
-            ->result();	
+            ->result();	 
     }
     
     function getAllKelurahan(){
@@ -134,9 +134,9 @@ class Adusaha_model extends CI_Model
         $this->ket_ush = $post["ket_ush"];
         $this->longitude = $post["longitude"];
         $this->latitude = $post["latitude"];
-        $this->id_member = $post["id_member"];
-        $this->id_kel = $post["id_kel"];
-        $this->id_kec = $post["id_kec"];
+        $this->id_member = $post["member"];
+        $this->id_kel = $post["kelurahan"];
+        $this->id_kec = $post["kecamatan"];
         $this->id_kat = $post["kategori"];
         return $this->db->update($this->_table, $this, array('id_usaha' => $post['id_usaha']));
     }
