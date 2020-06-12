@@ -22,8 +22,6 @@
 				<div class="card mb-3">
 					<div class="card-header">
 						<a href="<?php echo site_url('admin/member/add') ?>"><i class="fas fa-plus"></i> Tambah Member</a>
-						<a href="<?php echo site_url('admin/email') ?>"><i class="fas fa-print">
-						</i> Kirim Laporan Data Member</a>
 					</div>
 					<div class="card-body">
 
@@ -38,7 +36,7 @@
 										<th>Nohp Member</th>
 										<th>Alamat Member</th>
 										<th>Password Member</th>
-										<th>ID Admin</th>
+										<th>Nama Admin</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -63,7 +61,7 @@
 											<?php echo $member->password ?>
 										</td> 
 										<td width="150">
-											<?php echo $member->id_admin ?>
+											<?php echo $member->nama_admin ?>
 										</td>
 										<td width="250">
 											<a href="<?php echo site_url('admin/member/edit/'.$member->id_member) ?>"

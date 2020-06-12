@@ -19,39 +19,54 @@
 				<?php $this->load->view("member/_partials/breadcrumb.php") ?>
 
 				<!-- DataTables -->
-				<div class="card mb-3">
-					<div class="card-header">
-						<a href="<?php echo site_url('member/mgaleri/add') ?>"><i class="fas fa-plus"></i> Add New</a>
-					</div>
 					<div class="card-body">
 
 						<div class="table-responsive">
 							<table class="table table-hover" id="dataTable" width="100%" cellspacing="0">
 								<thead>
+								<tr>
 									<tr>
-										<th>Name</th>
-										<th>Foto</th>
-										<th>Nama Usaha</th>
+										<th>ID Member</th>
+										<th>Nama Member</th>
+										<th>Email Member</th>
+										<th>Nohp Member</th>
+										<th>Alamat Member</th>
+                                        <th>Username Member</th>
+										<th>Password Member</th>
+										<th>Nama Admin</th>
 									</tr>
 								</thead>
 								<tbody>
-									<?php foreach ($mgaleri as $galeri): ?>
+									<?php foreach ($datamember as $member): ?>
 									<tr>
 										<td width="150">
-											<?php echo $galeri->nama_gal ?>
-										</td>
-										<td>
-											<img src="<?php echo base_url('upload/adgaleri/'.$galeri->image) ?>" width="64" />
+										<?php echo $member->id_member ?>
+										</td> 
+										<td width="150">
+											<?php echo $member->nama_member ?>
 										</td>
 										<td width="150">
-											<?php echo $galeri->nama_ush ?>
+											<?php echo $member->email_member ?>
+										</td>
+										<td width="150">
+											<?php echo $member->nohp_member ?>
+										</td>
+										<td width="150">
+											<?php echo $member->alamat_member ?>
+										</td>
+                                        <td width="150">
+											<?php echo $member->username ?>
+										</td>
+										<td width="100">
+											<?php echo $member->password ?>
+										</td> 
+										<td width="150">
+											<?php echo $member->nama_admin ?>
 										</td>
 										<td width="250">
-											<a href="<?php echo site_url('admin/adgaleri/edit/'.$galeri->id_galeri) ?>"
+											<a href="<?php echo site_url('member/datamember/edit/'.$member->id_member) ?>"
 											 class="btn btn-small"><i class="fas fa-edit"></i> Edit</a>
-											<a onclick="deleteConfirm('<?php echo site_url('admin/adgaleri/delete/'.$galeri->id_galeri) ?>')"
-											 href="#!" class="btn btn-small text-danger"><i class="fas fa-trash"></i> Hapus</a>
-										</td>
+											</td>
 									</tr>
 									<?php endforeach; ?>
 
@@ -81,10 +96,10 @@
 
 	<script>
 	function deleteConfirm(url){
-		$('#btn-delete').attr('href', url);
-		$('#deleteModal').modal();
-	}
-	</script>
+	$('#btn-delete').attr('href', url);
+	$('#deleteModal').modal();
+}
+</script>
 </body>
 
 </html>

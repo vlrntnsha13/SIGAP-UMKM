@@ -94,39 +94,39 @@
 							</div>
 
 							<div class="form-group">
-								<label for="name">ID Member*</label>
-								<input class="form-control <?php echo form_error('id_member') ? 'is-invalid':'' ?>"
-								 type="dropdown" name="id_member" placeholder="ID Admin" value="<?php echo $musaha->id_member ?>" />
-								<div class="invalid-feedback">
-									<?php echo form_error('id_member') ?>
-								</div>
+								<label for="name">Nama Member*</label>
+								<select class="form-control" name="nama_member" id="nama_member">
+								<?php
+									foreach($dropdwnmem as $d){
+										echo "<option value=".$d->id_member.">".$d->nama_member."</option>";
+									}
+								//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
+								?>
+								</select>
 							</div>
 
 							<div class="form-group">
-								<label for="name">ID Admin*</label>
-								<input class="form-control <?php echo form_error('id_admin') ? 'is-invalid':'' ?>"
-								 type="dropdown" name="id_admin" placeholder="ID Admin" value="<?php echo $musaha->id_admin ?>" />
-								<div class="invalid-feedback">
-									<?php echo form_error('id_admin') ?>
-								</div>
+								<label for="name">Nama Kelurahan*</label>
+								<select class="form-control" name="nama_kel" id="nama_kel">
+								<?php
+									foreach($dropdwnkel as $d){
+										echo "<option value=".$d->id_kel.">".$d->nama_kel."</option>";
+									}
+								//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
+								?>
+								</select>
 							</div>
 
 							<div class="form-group">
-								<label for="name">ID Kelurahan*</label>
-								<input class="form-control <?php echo form_error('id_kel') ? 'is-invalid':'' ?>"
-								 type="dropdown" name="id_kel" placeholder="ID Kelurahan" value="<?php echo $musaha->id_kel ?>" />
-								<div class="invalid-feedback">
-									<?php echo form_error('id_kel') ?>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="name">ID Kecamatan*</label>
-								<input class="form-control <?php echo form_error('id_kec') ? 'is-invalid':'' ?>"
-								 type="dropdown" name="id_kec" placeholder="ID Kecamatan" value="<?php echo $musaha->id_kec ?>" />
-								<div class="invalid-feedback">
-									<?php echo form_error('id_kec') ?>
-								</div>
+								<label for="name">Nama Kecamatan*</label>
+								<select class="form-control" name="nama_kec" id="nama_kec">
+								<?php
+									foreach($dropdwnkec as $d){
+										echo "<option value=".$d->id_kec.">".$d->nama_kec."</option>";
+									}
+								//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
+								?>
+								</select>
 							</div>
 
 							<div class="form-group">

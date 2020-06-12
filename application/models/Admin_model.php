@@ -30,7 +30,7 @@ class Admin_model extends CI_Model
             
             ['field' => 'password',
             'label'=> 'Password',
-            'rules' => 'required'],
+            'rules' => 'required']
         ];
     }
     public function getAll()

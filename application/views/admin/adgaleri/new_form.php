@@ -58,6 +58,15 @@
 								</div>
 							</div>
 
+							<div class="form-group">
+								<label for="name">ID Usaha*</label>
+								<input class="form-control <?php echo form_error('id_usaha') ? 'is-invalid':'' ?>"
+								 type="dropdown" name="id_usaha" placeholder="ID Usaha" />
+								<div class="invalid-feedback">
+									<?php echo form_error('id_usaha') ?>
+								</div>
+							</div>
+
 			
 
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />

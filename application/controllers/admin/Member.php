@@ -19,6 +19,12 @@ class Member extends CI_Controller
         $this->load->view("admin/member/list", $data);
     }
 
+    function get_admin(){
+        $id_kat=$this->input->post('id_admin');
+        $data=$this->member_model->admin($id_admin);
+        echo json_encode($data);
+    }
+
     public function add()
     {
         $member = $this->member_model;
@@ -29,7 +35,8 @@ class Member extends CI_Controller
             $member->save();
             $this->session->set_flashdata('success', 'Data Member Berhasil disimpan');
         }
-
+        
+        $data['dropdwn'] = $this->member_model->getAllAdmin();
         $this->load->view("admin/member/new_form");
     }
 
@@ -48,6 +55,8 @@ class Member extends CI_Controller
 
         $data["member"] = $member->getById($id_member);
         if (!$data["member"]) show_404();
+        
+        $data['dropdwn'] = $this->member_model->getAllAdmin();
         
         $this->load->view("admin/member/edit_form", $data);
     }

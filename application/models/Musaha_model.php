@@ -11,7 +11,7 @@ class Musaha_model extends CI_Model
     public $longitude;
     public $latitude;
     public $id_member;
-    public $nama_mmber;
+    public $nama_member;
     public $id_kel;
     public $nama_kel;
     public $id_kec;
@@ -59,7 +59,7 @@ class Musaha_model extends CI_Model
             
             ['field' => 'nama_kat',
             'label'=> 'Nama Kategori',
-            'rules' => 'required'],
+            'rules' => 'required']
         ];
     }
 
@@ -120,7 +120,7 @@ class Musaha_model extends CI_Model
         $this->id_member = $post["id_member"];
         $this->id_kel = $post["id_kel"];
         $this->id_kec = $post["id_kec"];
-        $this->id_kat = $post["kategori"];
+        $this->id_kat = $post["id_kat"];
         return $this->db->insert($this->_table, $this);
     }
 
@@ -133,10 +133,10 @@ class Musaha_model extends CI_Model
         $this->ket_ush = $post["ket_ush"];
         $this->longitude = $post["longitude"];
         $this->latitude = $post["latitude"];
-        $this->id_member = $post["id_member"];
-        $this->id_kel = $post["id_kel"];
-        $this->id_kec = $post["id_kec"];
-        $this->id_kat = $post["kategori"];
+        $this->nama_member = $post["nama_member"];
+        $this->nama_kel = $post["nama_kel"];
+        $this->nama_kec = $post["nama_kec"];
+        $this->nama_kat = $post["nama_kat"];
         return $this->db->update($this->_table, $this, array('id_usaha' => $post['id_usaha']));
     }
 

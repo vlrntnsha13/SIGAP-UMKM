@@ -26,6 +26,24 @@ class Musaha extends CI_Controller
         echo json_encode($data);
     }
 
+    function get_member(){
+        $id_member=$this->input->post('id_member');
+        $data=$this->musaha_model->member($id_member);
+        echo json_encode($data);
+    }
+
+    function get_kelurahan(){
+        $id_kel=$this->input->post('id_kel');
+        $data=$this->musaha_model->kelurahan($id_kel);
+        echo json_encode($data);
+    }
+
+    function get_kecamatan(){
+        $id_kec=$this->input->post('id_kec');
+        $data=$this->musaha_model->kecamatan($id_kec);
+        echo json_encode($data);
+    }
+
     public function add()
     {
         $usaha = $this->musaha_model;
@@ -61,7 +79,9 @@ class Musaha extends CI_Controller
         $data["musaha"] = $usaha->getById($id_usaha);
         if (!$data["musaha"]) show_404();
         $data['dropdwnkat'] = $this->musaha_model->getAllKategori();
-
+        $data['dropdwnkec'] = $this->musaha_model->getAllKecamatan();
+        $data['dropdwnkel'] = $this->musaha_model->getAllKelurahan();
+        $data['dropdwnmem'] = $this->musaha_model->getAllMember();
         
         $this->load->view("member/musaha/edit_form", $data);
     }

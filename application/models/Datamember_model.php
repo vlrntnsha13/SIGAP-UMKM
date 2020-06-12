@@ -1,13 +1,13 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Member_model extends CI_Model
+class Datamember_model extends CI_Model
 {
     private $_table = "member";
 
     public $id_member;
     public $nama_member;
     public $email_member;
-    public $nohp_member;
+    public $nohp_mmeber;
     public $alamat_member;
     public $username;
     public $password;
@@ -35,11 +35,11 @@ class Member_model extends CI_Model
             ['field' => 'alamat_member',
             'label'=> 'Alamat member',
             'rules' => 'required'],
-            
+
             ['field' => 'username',
             'label'=> 'username member',
             'rules' => 'required'],
-
+            
             ['field' => 'password',
             'label'=> 'Password',
             'rules' => 'required'],
@@ -98,38 +98,4 @@ class Member_model extends CI_Model
         $this->id_admin = $post["id_admin"];
         return $this->db->update($this->_table, $this, array('id_member' => $post['id_member']));
     }
-
-    public function delete($id_member)
-    {
-        return $this->db->delete($this->_table, array("id_member" => $id_member));
-    }
-
-    public function send()
-     {
-          $config['mailtype'] = 'text';
-          $config['protocol'] = 'smtp';
-          $config['smtp_host'] = 'smtp.mailtrap.io';
-          $config['smtp_user'] = '72e4d5231f8844';
-          $config['smtp_pass'] = '022f9df3b0e9dc';
-          $config['smtp_port'] = 2525;
-          $config['newline'] = "\r\n";
-
-          $this->load->library('Member_model', $config);
-
-          $this->email->from('no-reply@sigap-umkm.com', 'Sistem sigap-umkm.com');
-          $this->email->to('gracehutabarat-5fc1b5@inbox.mailtrap.io');
-          $this->email->subject('Pendaftaran Member UMKM');
-          $this->email->message('Selamat anda sudah terdaftar, silahkan lakukan login dengan username dan password yang anda buat sebelumnya');
-
-          if($this->email->send()) {
-               echo 'Email berhasil dikirim';
-          }
-          else {
-               echo 'Email tidak berhasil dikirim';
-               echo '<br />';
-               echo $this->email->print_debugger();
-          }
-
-     }
-
 }

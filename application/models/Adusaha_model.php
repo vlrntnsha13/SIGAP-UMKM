@@ -11,7 +11,7 @@ class Adusaha_model extends CI_Model
     public $longitude;
     public $latitude;
     public $id_member;
-    public $nama_mmber;
+    public $nama_member;
     public $id_kel;
     public $nama_kel;
     public $id_kec;

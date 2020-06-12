@@ -75,13 +75,14 @@
 								</div>
 							</div>
 
-							<div class="form-group">
-								<label for="name">ID Admiin*</label>
+							<label for="name">ID Admin*</label>
 								<input class="form-control <?php echo form_error('id_admin') ? 'is-invalid':'' ?>"
-								 type="dropdown" name="id_admin" placeholder="ID Admin" />
+								 type="text" name="id_admin" placeholder="id_admin" />
 								<div class="invalid-feedback">
 									<?php echo form_error('id_admin') ?>
 								</div>
+							</div>
+								</select>
 							</div>
 
 							
