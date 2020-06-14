@@ -21,7 +21,7 @@
 				<!-- DataTables -->
 				<div class="card mb-3">
 					<div class="card-header">
-						<a href="<?php echo site_url('admin/adusaha/add') ?>"><i class="fas fa-plus"></i> Add New</a>
+						<a href="<?php echo site_url('admin/adusaha/export') ?>"><i class="fas fa-print"></i> Export Data </a>
 					</div>
 					<div class="card-body">
 

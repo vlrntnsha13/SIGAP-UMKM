@@ -23,6 +23,9 @@
 					<div class="card-header">
 						<a href="<?php echo site_url('admin/member/add') ?>"><i class="fas fa-plus"></i> Tambah Member</a>
 					</div>
+					<div class="card-header">
+						<a href="<?php echo site_url('admin/member/export') ?>"><i class="fas fa-print"></i> Export Data</a>
+					</div>
 					<div class="card-body">
 
 						<div class="table-responsive">

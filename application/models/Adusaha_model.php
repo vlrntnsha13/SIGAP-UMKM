@@ -75,7 +75,13 @@ class Adusaha_model extends CI_Model
         return $query->result();
     }
 
+    public function getAllData(){
+        $this->db->select('id_usaha, nama_ush, alamat_ush, ket_ush');
+        $this->db->from('usaha');
 
+        return $this->db->get();
+    }
+    
     function getAllKategori(){
 		
         return $this->db->from('kategori')

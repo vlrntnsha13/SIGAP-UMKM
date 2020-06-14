@@ -2,6 +2,11 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+require('./application/third_party/phpoffice/vendor/autoload.php');
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 class Member extends CI_Controller
 {
     public function __construct()
@@ -69,4 +74,41 @@ class Member extends CI_Controller
             redirect(site_url('admin/member'));
         }
     }
+
+    public function export()
+     {
+          $semua_member = $this->member_model->getAllData()->result();
+
+          $spreadsheet = new Spreadsheet;
+
+          $spreadsheet->setActiveSheetIndex(0)
+                      ->setCellValue('A1', 'ID Member')
+                      ->setCellValue('B1', 'Nama Member')
+                      ->setCellValue('C1', 'Email Member')
+                      ->setCellValue('D1', 'Nohp Member')
+                      ->setCellValue('E1', 'Alamat Member');
+
+          $kolom = 2;
+
+          foreach($semua_member as $member) {
+
+               $spreadsheet->setActiveSheetIndex(0)
+                           ->setCellValue('A' . $kolom, $member->id_member)
+                           ->setCellValue('B' . $kolom, $member->nama_member)
+                           ->setCellValue('C' . $kolom, $member->email_member)
+                           ->setCellValue('D' . $kolom, $member->nohp_member)
+                           ->setCellValue('E' . $kolom, $member->alamat_member);
+
+               $kolom++;
+          }
+
+          $writer = new Xlsx($spreadsheet);
+
+        header('Content-Type: application/vnd.ms-excel');
+	    header('Content-Disposition: attachment;filename="Laporanmember.xlsx"');
+	    header('Cache-Control: max-age=0');
+
+	  $writer->save('php://output');
+     }
+
 }

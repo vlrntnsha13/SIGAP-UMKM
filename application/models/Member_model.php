@@ -58,6 +58,13 @@ class Member_model extends CI_Model
         return $query->result();
     }
 
+    public function getAllData(){
+        $this->db->select('id_member, nama_member, email_member, nohp_member, alamat_member');
+        $this->db->from('member');
+
+        return $this->db->get();
+    }
+
     function getAllAdmin(){
 		
         return $this->db->from('admin')
