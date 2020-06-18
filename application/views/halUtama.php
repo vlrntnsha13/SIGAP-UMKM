@@ -16,16 +16,9 @@
 
 		<div class="container-fluid">
 
-        <!-- 
-        karena ini halaman overview (home), kita matikan partial breadcrumb.
-        Jika anda ingin mengampilkan breadcrumb di halaman overview,
-        silahkan hilangkan komentar (//) di tag PHP di bawah.
-        -->
-		<?php //$this->load->view("admin/_partials/breadcrumb.php") ?>
-
         <h1> SELAMAT DATANG DI SISTEM INFORMASI GEOGRAFIS UMKM YOGYAKARTA </H1>
 
-		<div class="container">
+
 			<hr>
 			<form action="<?php echo base_url('index.php/HalUtama/hasil')?>" action="GET">
 				<div class="form-inline">

@@ -30,13 +30,28 @@ class Member extends CI_Controller
         $member = $this->member_model;
         $validation = $this->form_validation;
         $validation->set_rules($member->rules());
-
         if ($validation->run()) {
             $member->save();
-            $this->session->set_flashdata('success', 'Data Member Berhasil disimpan');
+            $this->session->set_flashdata('success', 'Data Member berhasil tersimpan dan email telah terkirim');
+
+
         }
+        $config['mailtype'] = 'html';
+        $config['protocol'] = 'smtp';
+        $config['smtp_host'] = 'smtp.mailtrap.io';
+        $config['smtp_user'] = '72e4d5231f8844';
+        $config['smtp_pass'] = '022f9df3b0e9dc';
+        $config['smtp_port'] = 2525;
+        $config['newline'] = "\r\n";
         
-        $data['dropdwn'] = $this->member_model->getAllAdmin();
+        $this->load->library('email', $config);
+
+        $this->email->from('no-reply@sigapumkm.com', 'SIGaP UMKM');
+        $this->email->to('gracehutabarat-5fc1b5@inbox.mailtrap.io');
+        $this->email->subject('Validasi Akun');
+        $this->email->message('Klik button Active untuk mengaktifkan Akun Anda. <a href="http://localhost/sigapumkm/index.php/member">AKTIF</a>');
+        
+        //$data['dropdwn'] = $this->member_model->getAllAdmin();
         $this->load->view("admin/member/new_form");
     }
 

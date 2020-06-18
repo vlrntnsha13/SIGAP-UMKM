@@ -73,6 +73,20 @@
 			</div>
 			</div>
 		</div>
+
+		<hr>
+			<form action="<?php echo base_url('index.php/HalUtama/hasil')?>" action="GET">
+				<div class="form-inline">
+					<div class="form-group">
+						<label for="cari"><strong>Usaha yang dicari</strong></label>
+						<input type="text" class="form-control" id="cari" name="cari" 
+						placeholder="Cari usaha  .">
+					</div>
+						<input class="btn btn-primary" type="submit" value="Cari">
+				</div>
+			</form>
+
+		<hr>
 		   
         <link href="<?php echo base_url('/css/map.css') ?>">
         

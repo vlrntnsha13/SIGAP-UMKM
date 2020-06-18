@@ -11,7 +11,7 @@ class Adusaha_model extends CI_Model
     public $longitude;
     public $latitude;
     public $id_member;
-    public $nama_member;
+    public $nama_mmber;
     public $id_kel;
     public $nama_kel;
     public $id_kec;
@@ -45,21 +45,21 @@ class Adusaha_model extends CI_Model
             'label'=> 'Latitude',
             'rules' => 'required'],
 
-            ['field' => 'id_member',
+            ['field' => 'nama_member',
             'label'=> 'Nama Member',
             'rules' => 'required'],
 
-            ['field' => 'id_kel',
+            ['field' => 'nama_kel',
             'label'=> 'Nama Kelurahan',
             'rules' => 'required'],
 
-            ['field' => 'id_kec',
+            ['field' => 'nama_kec',
             'label'=> 'Nama Kecamatan',
             'rules' => 'required'],
             
-            ['field' => 'id_kat',
+            ['field' => 'nama_kat',
             'label'=> 'Nama Kategori',
-            'rules' => 'required']
+            'rules' => 'required'],
         ];
     }
 
@@ -134,10 +134,10 @@ class Adusaha_model extends CI_Model
         $this->ket_ush = $post["ket_ush"];
         $this->longitude = $post["longitude"];
         $this->latitude = $post["latitude"];
-        $this->id_member = $post["member"];
-        $this->id_kel = $post["kelurahan"];
-        $this->id_kec = $post["kecamatan"];
-        $this->id_kat = $post["kategori"];
+        $this->id_member = $post["id_member"];
+        $this->id_kel = $post["id_kel"];
+        $this->id_kec = $post["id_kec"];
+        $this->id_kat = $post["id_kat"];
         return $this->db->update($this->_table, $this, array('id_usaha' => $post['id_usaha']));
     }
 

@@ -41,7 +41,7 @@
 
 							<div class="form-group">
 								<label for="name">Nama usaha*</label>
-								<input class="form-control <?php echo form_error('nama_ush') ? 'is-invalid':'' ?>"
+								<input class="form-control "
 								 type="text" name="judul" placeholder="Nama usaha" value="<?php echo $musaha->nama_ush ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('nama_ush') ?>
@@ -50,7 +50,7 @@
 
 							<div class="form-group">
 								<label for="name">Alamat Usaha *</label>
-								<textarea class="form-control <?php echo form_error('alamat_ush') ? 'is-invalid':'' ?>"
+								<textarea class="form-control "
 								 name="isi" placeholder="Alamat Usaha"><?php echo $musaha->alamat_ush ?></textarea>
 								<div class="invalid-feedback">
 									<?php echo form_error('alamat_ush') ?>
@@ -60,34 +60,34 @@
 
                             <div class="form-group">
 								<label for="name">Keterangan usaha*</label>
-								<input class="form-control <?php echo form_error('ket_ush') ? 'is-invalid':'' ?>"
-								 type="date" name="ket_ush" placeholder="Keterangan usaha" value="<?php echo $musaha->ket_ush ?>" />
+								<input class="form-control "
+								 type="text" name="keterangan" placeholder="Keterangan usaha" value="<?php echo $musaha->ket_ush ?>" />
 								<div class="invalid-feedback">
 									<?php echo form_error('ket_ush') ?>
 								</div>
 							</div>
 
-							
-							<link href="<?php echo base_url('/css/map.css') ?>">
-        
-							<div id="map" class="map">
-								<script src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.js"></script>
-								<script src="<?php echo base_url('/js/map.js') ?>"></script>
-							</div>
+							<script src="<?php echo base_url('js/jquery-1.7.2.min.js') ?>"></script>
+							<script src="<?php echo base_url('js/OpenLayers.js') ?>"></script>
 
-                            <div class="form-group">
-								<label for="name">Longitude *</label>
-								<input class="form-control <?php echo form_error('longitude') ? 'is-invalid':'' ?>"
-								 type="text" name="longitude" placeholder="Longitude" value="<?php echo $musaha->longitude ?>" />
+							<link href="<?php echo base_url('css/jquery-position-picker.css') ?>" rel="stylesheet" type="text/css" />
+							<script src="<?php echo base_url('js/jquery-position-picker.debug.js') ?>"></script>
+
+							<div class='gllpLatlonPicker'>
+								<div class='gllpMap'></div>
+					
+						
+							<div class="form-group">
+								<label for="name">Longitude*</label>
+								<input class="form-control gllpLongitude " type="text" name="longitude"  value='109.7326' placeholder="Longitude"  readonly/>
 								<div class="invalid-feedback">
 									<?php echo form_error('longitude') ?>
 								</div>
 							</div>
 
-                            <div class="form-group">
-								<label for="link">Latitude*</label>
-								<input class="form-control <?php echo form_error('latitude') ? 'is-invalid':'' ?>"
-								 type="text" name="latitude" placeholder="Latitude" value="<?php echo $musaha->latitude ?>" />
+							<div class="form-group">
+								<label for="name">Latitude*</label>
+								<input class="form-control gllpLatitude" type="text" name="latitude" value='-6.908' placeholder="Latitude" readonly />
 								<div class="invalid-feedback">
 									<?php echo form_error('latitude') ?>
 								</div>
@@ -95,50 +95,51 @@
 
 							<div class="form-group">
 								<label for="name">Nama Member*</label>
-								<select class="form-control" name="nama_member" id="nama_member">
-								<?php
-									foreach($dropdwnmem as $d){
-										echo "<option value=".$d->id_member.">".$d->nama_member."</option>";
+								<select class="form-control" name="id_member" id="member">
+									<?php
+									foreach ($dropdwnmem as $d) {
+										echo "<option value=" . $d->id_member . ">" . $d->nama_member . "</option>";
 									}
-								//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
-								?>
+									//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
+									?>
 								</select>
 							</div>
 
 							<div class="form-group">
 								<label for="name">Nama Kelurahan*</label>
-								<select class="form-control" name="nama_kel" id="nama_kel">
-								<?php
-									foreach($dropdwnkel as $d){
-										echo "<option value=".$d->id_kel.">".$d->nama_kel."</option>";
+								<select class="form-control" name="id_kel" id="kelurahan">
+									<?php
+									foreach ($dropdwnkel as $d) {
+										echo "<option value=" . $d->id_kel . ">" . $d->nama_kel . "</option>";
 									}
-								//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
-								?>
+									//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
+									?>
 								</select>
 							</div>
 
 							<div class="form-group">
 								<label for="name">Nama Kecamatan*</label>
-								<select class="form-control" name="nama_kec" id="nama_kec">
-								<?php
-									foreach($dropdwnkec as $d){
-										echo "<option value=".$d->id_kec.">".$d->nama_kec."</option>";
+								<select class="form-control" name="id_kec" id="kecamatan">
+									<?php
+									foreach ($dropdwnkec as $d) {
+										echo "<option value=" . $d->id_kec . ">" . $d->nama_kec . "</option>";
 									}
-								//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
-								?>
+									//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
+									?>
 								</select>
 							</div>
 
 							<div class="form-group">
 								<label for="name">Nama Kategori*</label>
-								<select class="form-control" name="kategori" id="kategori">
-								<?php
-									foreach($dropdwn as $d){
-										echo "<option value=".$d->id_kat.">".$d->nama_kat."</option>";
+								<select class="form-control" name="id_kat" id="kategori">
+									<?php
+									foreach ($dropdwnkat as $d) {
+										echo "<option value=" . $d->id_kat . ">" . $d->nama_kat . "</option>";
 									}
-								//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
-								?>
+									//echo "<script type='text/javascript'> console.log("+$dropdwn+")</script>";
+									?>
 								</select>
+							</div>
 
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />
 						</form>

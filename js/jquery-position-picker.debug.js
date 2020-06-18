@@ -141,14 +141,14 @@ var OLLatLonPicker = (function () {
         var location = new OpenLayers.LonLat(lng_MapProjection, lat_MapProjection);
         var size = new OpenLayers.Size(21, 25);
         var offset = new OpenLayers.Pixel(-(size.w / 2), -size.h);
-        var icon = new OpenLayers.Icon('images/marker.png', size, offset);
+        var icon = new OpenLayers.Icon('http://localhost/sigapumkm/assets/images/marker.png' ,size, offset);
         _self.vars.markers.addMarker(new OpenLayers.Marker(location, icon.clone()));
         _self.vars.map.panTo(location);
         _self.vars.map.zoomTo(zoom);
         onLocationChanged();
     };
 
-
+   
     /**
      * Set Default Position
      *

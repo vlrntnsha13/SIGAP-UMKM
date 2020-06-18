@@ -29,8 +29,7 @@
 						<a href="<?php echo site_url('admin/member/') ?>"><i class="fas fa-arrow-left"></i> Back</a>
 					</div>
 					<div class="card-body">
-
-					<form action="<?php echo site_url('admin/member/add') ?>" method="post" enctype="multipart/form-data" >
+						<form action="<?php echo site_url('admin/member/add') ?>" method="post" enctype="multipart/form-data" >
 							<div class="form-group">
 								<label for="name">ID Member*</label>
 								<input class="form-control <?php echo form_error('id_member') ? 'is-invalid':'' ?>"
@@ -38,6 +37,7 @@
 								<div class="invalid-feedback">
 									<?php echo form_error('id_member') ?>
 								</div>
+								
 								<label for="name">Nama Member*</label>
 								<input class="form-control <?php echo form_error('nama_member') ? 'is-invalid':'' ?>"
 								 type="text" name="nama_member" placeholder="Nama member" />
@@ -67,28 +67,22 @@
 								</div>
 
 
-								<label for="name">Password Admin*</label>
+								<label for="name">Password Member*</label>
 								<input class="form-control <?php echo form_error('password') ? 'is-invalid':'' ?>"
-								 type="text" name="password" placeholder="password" />
+								 type="password" name="password" placeholder="password" />
 								<div class="invalid-feedback">
 									<?php echo form_error('password') ?>
 								</div>
-							</div>
 
-							<label for="name">ID Admin*</label>
+								<label for="name">ID Admin*</label>
 								<input class="form-control <?php echo form_error('id_admin') ? 'is-invalid':'' ?>"
 								 type="text" name="id_admin" placeholder="id_admin" />
 								<div class="invalid-feedback">
 									<?php echo form_error('id_admin') ?>
 								</div>
-							</div>
-								</select>
-							</div>
-
-							
+							</div>	
 							<input class="btn btn-success" type="submit" name="btn" value="Save" />
 						</form>
-
 					</div>
 
 					<div class="card-footer small text-muted">
@@ -98,15 +92,18 @@
 
 				</div>
 				<!-- /.container-fluid -->
-
-				<!-- Sticky Footer -->
-				<?php $this->load->view("admin/_partials/footer.php") ?>
+				
 
 			</div>
 			<!-- /.content-wrapper -->
+			<!-- Sticky Footer -->
+			<?php $this->load->view("admin/_partials/footer.php") ?>
+				
+			
 
 		</div>
 		<!-- /#wrapper -->
+		
 
 
 		<?php $this->load->view("admin/_partials/scrolltop.php") ?>

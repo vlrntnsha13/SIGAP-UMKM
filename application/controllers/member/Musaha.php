@@ -51,6 +51,7 @@ class Musaha extends CI_Controller
         $validation->set_rules($usaha->rules());
 
         if ($validation->run()) {
+          
             $usaha->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
@@ -60,7 +61,7 @@ class Musaha extends CI_Controller
         $data['dropdwnmem'] = $this->musaha_model->getAllMember();
 
 
-        $this->load->view("member/musaha/new_form");
+        $this->load->view("member/musaha/new_form",$data);
     }
 
     public function edit($id_usaha = null)
