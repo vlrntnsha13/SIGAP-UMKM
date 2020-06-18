@@ -2,6 +2,11 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+require('./application/third_party/phpoffice/vendor/autoload.php');
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 class Adusaha extends CI_Controller
 {
     public function __construct()
@@ -71,4 +76,38 @@ class Adusaha extends CI_Controller
             redirect(site_url('admin/adusaha'));
         }
     }
+
+    public function export()
+     {
+          $semua_usaha = $this->adusaha_model->getAllData()->result();
+
+          $spreadsheet = new Spreadsheet;
+
+          $spreadsheet->setActiveSheetIndex(0)
+                      ->setCellValue('A1', 'ID Usaha')
+                      ->setCellValue('B1', 'Nama Usaha')
+                      ->setCellValue('C1', 'Alamat Usaha')
+                      ->setCellValue('D1', 'Keterangan Usaha');
+
+          $kolom = 2;
+
+          foreach($semua_usaha as $usaha) {
+
+               $spreadsheet->setActiveSheetIndex(0)
+                           ->setCellValue('A' . $kolom, $usaha->id_usaha)
+                           ->setCellValue('B' . $kolom, $usaha->nama_ush)
+                           ->setCellValue('C' . $kolom, $usaha->alamat_ush)
+                           ->setCellValue('D' . $kolom, $usaha->ket_ush);
+
+               $kolom++;
+          }
+
+          $writer = new Xlsx($spreadsheet);
+
+        header('Content-Type: application/vnd.ms-excel');
+	    header('Content-Disposition: attachment;filename="Laporanumkm.xlsx"');
+	    header('Cache-Control: max-age=0');
+
+	  $writer->save('php://output');
+     }
 }
