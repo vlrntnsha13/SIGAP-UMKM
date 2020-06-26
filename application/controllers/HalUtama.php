@@ -18,5 +18,11 @@ class HalUtama extends CI_Controller {
 		$data2['cari'] = $this->halUtama_model->cariUsaha();
 		$this->load->view('result', $data2);
 	}
+
+	public function usaha_json()
+	{
+		$data3=$this->db->get('usaha')->result();
+		echo json_encode($data3);
+	}
 	
 }

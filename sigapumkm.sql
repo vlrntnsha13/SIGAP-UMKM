@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Jun 2020 pada 14.52
+-- Waktu pembuatan: 26 Jun 2020 pada 17.28
 -- Versi server: 10.4.11-MariaDB
 -- Versi PHP: 7.4.2
 
@@ -110,8 +110,14 @@ CREATE TABLE `kategori` (
 
 INSERT INTO `kategori` (`id_kat`, `nama_kat`) VALUES
 ('KAT00', '-'),
-('KAT01', 'Baju'),
-('KAT02', 'Otomotif');
+('KAT01', 'Makanan dan Minuman'),
+('KAT02', 'Fashion'),
+('KAT04', 'Elektronik dan Gadget'),
+('KAT05', 'Kecantikan dan Makeup'),
+('KAT06', 'Properti'),
+('KAT07', 'Properti'),
+('KAT08', 'Teknologi'),
+('KATO3', 'Handicraft');
 
 -- --------------------------------------------------------
 
@@ -690,7 +696,8 @@ CREATE TABLE `member` (
 INSERT INTO `member` (`id_member`, `nama_member`, `email_member`, `nohp_member`, `alamat_member`, `username`, `password`, `level`, `id_admin`) VALUES
 ('M00', '-', 'member0@gmail.com', '08132132213', 'Jl.Mangga no 11', 'member1', 'c7764cfed23c5ca3bb393308a0da2306', 2, 'A01'),
 ('M01', 'Member1', 'member1@gmail.com', '08132132213', 'Jl.Mangga no 11', 'member1', 'c7764cfed23c5ca3bb393308a0da2306', 2, 'A01'),
-('M02', 'Member 2', 'member2@gmail.com', '081234566788', 'JL rambutan', 'member2', 'member2', 2, 'A01');
+('M02', 'Member 2', 'member2@gmail.com', '081234566788', 'JL rambutan', 'member2', 'member2', 2, 'A01'),
+('M03', 'COBA', 'COBA@GMAIL.COM', '02912', 'LAJSKFJ', '', 'AAAA', 0, 'A02');
 
 -- --------------------------------------------------------
 
@@ -706,7 +713,6 @@ CREATE TABLE `usaha` (
   `longitude` varchar(100) NOT NULL,
   `latitude` varchar(100) NOT NULL,
   `id_member` char(3) NOT NULL,
-  `id_admin` char(3) NOT NULL,
   `id_kel` char(6) NOT NULL,
   `id_kec` char(5) NOT NULL,
   `id_kat` char(5) NOT NULL
@@ -716,10 +722,12 @@ CREATE TABLE `usaha` (
 -- Dumping data untuk tabel `usaha`
 --
 
-INSERT INTO `usaha` (`id_usaha`, `nama_ush`, `alamat_ush`, `ket_ush`, `longitude`, `latitude`, `id_member`, `id_admin`, `id_kel`, `id_kec`, `id_kat`) VALUES
-('US01', 'Putra Insan Keramik & Craft', 'Kasongan, Kajen, Jl. Kasongan, RT. 01, Bangunjiwo, Kajen, Bangunjiwo, Daerah Istimewa Yogyakarta, Bantul, Daerah Istimewa Yogyakarta 55184', 'Usaha gerabah dengan produk souvenir, pot guci', '1103336036', '-78458961', 'M01', 'A01', 'KEL035', 'KEC07', 'KAT01'),
-('US02', 'Moodglory Store', 'Cobongan, Ngestiharjo, Kasihan, Bantul Regency, Special Region of Yogyakarta 55184', 'Usaha Fashion sablonan dengan produk baju, titebas, souvenis, dll', '1103451622', '-77942558', 'M01', 'A01', 'KEL036', 'KEC07', 'KAT01'),
-('US03', 'Kripik Belut Mitra Ibu Tini', 'Jl. Godean No.7, Jetis, Sidoagung, Jetis, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55293', 'Usaha Kuliner dengan produk makanan berupa kripik olahan dari belut', '1102980445', '-77583983', 'M01', 'A01', 'KEL324', 'KEC52', 'KAT01');
+INSERT INTO `usaha` (`id_usaha`, `nama_ush`, `alamat_ush`, `ket_ush`, `longitude`, `latitude`, `id_member`, `id_kel`, `id_kec`, `id_kat`) VALUES
+('US01', 'Putra Insan Keramik & Craft', 'Kasongan, Kajen, Jl. Kasongan, RT. 01, Bangunjiwo, Kajen, Bangunjiwo, Daerah Istimewa Yogyakarta, Bantul, Daerah Istimewa Yogyakarta 55184', 'Usaha gerabah dengan produk souvenir, pot guci', '1103336036', '-78458961', 'M01', 'KEL035', 'KEC07', 'KAT01'),
+('US02', 'Moodglory Store', 'Cobongan, Ngestiharjo, Kasihan, Bantul Regency, Special Region of Yogyakarta 55184', 'Usaha Fashion sablonan dengan produk baju, titebas, souvenis, dll', '1103451622', '-77942558', 'M01', 'KEL036', 'KEC07', 'KAT01'),
+('US03', 'Kripik Belut Mitra Ibu Tini', 'Jl. Godean No.7, Jetis, Sidoagung, Jetis, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55293', 'Usaha Kuliner dengan produk makanan berupa kripik olahan dari belut', '1102980445', '-77583983', 'M01', 'KEL324', 'KEC52', 'KAT01'),
+('US04', 'Kripik Ayam Mitra Ibu Tini', 'Jl. Godean No.7, Jetis, Sidoagung, Jetis, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55293', 'Usaha Kuliner dengan produk makanan berupa kripik olahan dari belut', '1102980445', '-77583983', 'M01', 'KEL324', 'KEC52', 'KAT01'),
+('US05', 'Coba semoga bisa', 'coba biar cepet selesai', 'doakan cepat selesai', '110.37182', '-7.75430', 'M02', 'KEL095', 'KEC10', 'KAT02');
 
 --
 -- Indexes for dumped tables
@@ -777,7 +785,6 @@ ALTER TABLE `member`
 ALTER TABLE `usaha`
   ADD PRIMARY KEY (`id_usaha`),
   ADD KEY `member_usaha` (`id_member`),
-  ADD KEY `admin_usaha` (`id_admin`),
   ADD KEY `kelurahan_usaha` (`id_kel`),
   ADD KEY `kecamatan_usaha` (`id_kec`),
   ADD KEY `kategori_usaha` (`id_kat`);
@@ -815,7 +822,6 @@ ALTER TABLE `member`
 --
 ALTER TABLE `usaha`
   ADD CONSTRAINT `Kategori_usaha` FOREIGN KEY (`id_kat`) REFERENCES `kategori` (`id_kat`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `admin_usaha` FOREIGN KEY (`id_admin`) REFERENCES `admin` (`id_admin`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `kecamatan_usaha` FOREIGN KEY (`id_kec`) REFERENCES `kecamatan` (`id_kec`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `kelurahan_usaha` FOREIGN KEY (`id_kel`) REFERENCES `kelurahan` (`id_kel`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `member_usaha` FOREIGN KEY (`id_member`) REFERENCES `member` (`id_member`) ON DELETE CASCADE ON UPDATE CASCADE;

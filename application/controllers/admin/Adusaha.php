@@ -58,7 +58,7 @@ class Adusaha extends CI_Controller
 
         if ($validation->run()) {
             $usaha->update();
-            $this->session->set_flashdata('success', 'berita Berhasil diupdate');
+            $this->session->set_flashdata('success', 'usaha Berhasil diupdate');
         }
 
         $data["adusaha"] = $usaha->getById($id_usaha);

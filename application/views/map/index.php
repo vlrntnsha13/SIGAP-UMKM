@@ -8,7 +8,9 @@
  
 <script>
     var map = L.map('map').setView([42.35, -71.08], 13);
-  
+    
+    
+  });
     
     L.tileLayer('http://tiles.mapc.org/basemap/{z}/{x}/{y}.png', {
         attribution: '© OpenStreetMap contributors',

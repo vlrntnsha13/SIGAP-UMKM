@@ -38,6 +38,8 @@
         <div id="map" class="map">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.5/ol.js"></script>
 		<script src="<?php echo base_url('/js/map.js') ?>"></script>
+
+		
 		</div>
 
 		<!-- Icon Cards-->
@@ -50,7 +52,7 @@
 				</div>
 				<div class="mr-5">Fashion</div>
 				</div>
-				<a class="card-footer text-white clearfix small z-1" href="#">
+				<a class="card-footer text-white clearfix small z-1" href="kategori/fashion">
 				<span class="float-left">View Details</span>
 				<span class="float-right">
 					<i class="fas fa-angle-right"></i>
@@ -66,7 +68,7 @@
 				</div>
 				<div class="mr-5">Makanan dan minuman</div>
 				</div>
-				<a class="card-footer text-white clearfix small z-1" href="#">
+				<a class="card-footer text-white clearfix small z-1" href="kategori/mami">
 				<span class="float- left">View Details</span>
 				<span class="float-right">
 					<i class="fas fa-angle-right"></i>
@@ -82,7 +84,7 @@
 				</div>
 				<div class="mr-5">Handicraft</div>
 				</div>
-				<a class="card-footer text-white clearfix small z-1" href="#">
+				<a class="card-footer text-white clearfix small z-1" href="kategori/hc">
 				<span class="float-left">View Details</span>
 				<span class="float-right">
 					<i class="fas fa-angle-right"></i>
@@ -98,7 +100,7 @@
 				</div>
 				<div class="mr-5">Elektronik dan Gadget</div>
 				</div>
-				<a class="card-footer text-white clearfix small z-1" href="#">
+				<a class="card-footer text-white clearfix small z-1" href="kategori/et">
 				<span class="float-left">View Details</span>
 				<span class="float-right">
 					<i class="fas fa-angle-right"></i>
@@ -114,7 +116,7 @@
 				</div>
 				<div class="mr-5">Kecantikan dan Makeup</div>
 				</div>
-				<a class="card-footer text-white clearfix small z-1" href="#">
+				<a class="card-footer text-white clearfix small z-1" href="kategori/kc">
 				<span class="float-left">View Details</span>
 				<span class="float-right">
 					<i class="fas fa-angle-right"></i>
@@ -130,7 +132,7 @@
 				</div>
 				<div class="mr-5">Properti</div>
 				</div>
-				<a class="card-footer text-white clearfix small z-1" href="#">
+				<a class="card-footer text-white clearfix small z-1" href="kategori/pro">
 				<span class="float-left">View Details</span>
 				<span class="float-right">
 					<i class="fas fa-angle-right"></i>
@@ -146,7 +148,7 @@
 				</div>
 				<div class="mr-5">Rumah Tangga</div>
 				</div>
-				<a class="card-footer text-white clearfix small z-1" href="#">
+				<a class="card-footer text-white clearfix small z-1" href="kategori/rt">
 				<span class="float-left">View Details</span>
 				<span class="float-right">
 					<i class="fas fa-angle-right"></i>
@@ -162,7 +164,7 @@
 				</div>
 				<div class="mr-5">Teknologi </div>
 				</div>
-				<a class="card-footer text-white clearfix small z-1" href="#">
+				<a class="card-footer text-white clearfix small z-1" href="kategori/tek">
 				<span class="float-left">View Details</span>
 				<span class="float-right">
 					<i class="fas fa-angle-right"></i>
